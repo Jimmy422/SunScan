@@ -23,7 +23,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" >
+            <ListBox ItemContainerStyle="{DynamicResource Listitem_Scan_Result}" x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" Style="{DynamicResource Device_ListBox}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -32,7 +32,7 @@
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding deviceName}" />
+                            <TextBlock FontSize="14" Text="{Binding deviceName}" />
                             <TextBlock Grid.Row="1" Text="{Binding deviceIP}" />
                             <TextBlock Grid.Row="2" Text="{Binding deviceMAC}" />
                         </Grid>

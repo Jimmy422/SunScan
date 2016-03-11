@@ -10,11 +10,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Foreground="White" FontSize="36" FontFamily="Segoe UI Light" Text="Device Title" Margin="0 0 0 8" />
-        <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button_back" Grid.ColumnSpan="2" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click"/>
+        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light" Text="Device Title" Margin="8 0 0 8" />
+        <Grid Grid.ColumnSpan="2" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

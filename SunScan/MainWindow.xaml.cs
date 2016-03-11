@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunScan.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace SunScan
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_scan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_home_Click(object sender, RoutedEventArgs e)
+        {
+            Uri homePage = new Uri("Pages/HomePage.xaml", UriKind.Relative);
+            frame_pages.Source = homePage;
         }
     }
 }

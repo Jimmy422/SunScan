@@ -28,7 +28,12 @@ namespace SunScan.Pages
             InitializeComponent();
             textBlock_ipAddress.Text = selectedDevice.deviceIP;
             textBlock_macAddress.Text = selectedDevice.deviceMAC;
-            textBlock_deviceTitle.Text = selectedDevice.deviceName + " Device";
+            textBlock_deviceTitle.Text = selectedDevice.deviceName;
+        }
+
+        private void button_back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

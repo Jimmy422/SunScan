@@ -117,7 +117,7 @@ namespace SunScan.Pages
                                         }  
                                         break;
                                     case "vendor":
-                                        foundName = xmlToScan.Value;
+                                        foundName = xmlToScan.Value + " Device";
                                         break;
                                 }
                             }

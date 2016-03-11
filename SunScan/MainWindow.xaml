@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Button x:Name="button_home" Content="Home" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_home" Content="Home" Height="80" Style="{DynamicResource SideButton}" Click="button_home_Click"/>
             <Button x:Name="button_scan" Content="Scan" Height="80" Style="{DynamicResource SideButton}"/>
             <Button x:Name="button_manage" Content="Manage" Height="80" Style="{DynamicResource SideButton}"/>
             <Button x:Name="button_favorites" Content="Favorites" Height="80" Style="{DynamicResource SideButton}"/>
