@@ -1,0 +1,35 @@
+﻿<Page x:Class="SunScan.Pages.DeviceDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SunScan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="DeviceDetailsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Foreground="White" FontSize="36" FontFamily="Segoe UI Light" Text="Device Title" Margin="0 0 0 8" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="White" Margin="0 0 16 16" FontSize="16">IP Address:</TextBlock>
+            <TextBlock x:Name="textBlock_ipAddress" Grid.Column="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+            <TextBlock Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16">MAC Address:</TextBlock>
+            <TextBlock x:Name="textBlock_macAddress" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+            <Button Grid.Row="2" x:Name="button_manage" Content="Manage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="button_favorite" Content="Add To Favorites" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125"/>
+        </Grid>
+    </Grid>
+</Page>

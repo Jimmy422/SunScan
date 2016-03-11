@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunScan.Classes;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace SunScan
     /// </summary>
     public partial class App : Application
     {
+        //These are objects that get passed between pages. If you need something to go
+        //across multiple pages, put it below.
+
+        public List<aDevice> deviceList { get; set; }
+        public aDevice selectedDevice { get; set; }
     }
 }

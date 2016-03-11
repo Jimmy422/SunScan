@@ -1,0 +1,39 @@
+﻿
+<Page x:Class="SunScan.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SunScan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="HomePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
+            Welcome to Sunscan!
+        </TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}">Run a New Scan</Button>
+            <Button x:Name="button_openScan" Style="{DynamicResource Button_Main}" Grid.Column="1" Click="button_openScan_Click">
+                <TextBlock x:Name="textBlock_openScan">Open Previous Scan</TextBlock>
+            </Button>
+            <Button x:Name="button_manageDevices" Style="{DynamicResource Button_Main}" Grid.Column="2">Manage Devices</Button>
+            <Button x:Name="button_favoriteDevices" Style="{DynamicResource Button_Main}" Grid.Column="0" Grid.Row="1">View Favorite Devices</Button>
+            <Button x:Name="button_settings" Style="{DynamicResource Button_Main}" Grid.Column="1" Grid.Row="1">Edit Settings</Button>
+        </Grid>
+    </Grid>
+</Page>

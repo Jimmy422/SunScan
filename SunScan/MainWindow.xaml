@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunScan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="SunScan" Height="600" Width="1100">
+    <Grid Background="#FF1D1D1D">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button x:Name="button_home" Content="Home" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_scan" Content="Scan" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_manage" Content="Manage" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_favorites" Content="Favorites" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_settings" Content="Settings" Height="80" Style="{DynamicResource SideButton}"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Background="#FF313131">
+            <Frame x:Name="frame_pages" NavigationUIVisibility="Hidden" Content="Frame" Source="Pages/HomePage.xaml" Margin="12,6"/>
+        </Grid>
     </Grid>
 </Window>
