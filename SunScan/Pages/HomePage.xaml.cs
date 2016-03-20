@@ -179,5 +179,34 @@ namespace SunScan.Pages
                 Console.WriteLine("The file was not able to be read. Check your XML file.");
             }
         }
+
+        private void button_newScan_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: nmapTest.xml get
+
+            NMAPScan.ReadCommands("test1.txt", "nmapTest.xml");
+
+            xmlReader = new XmlTextReader("nmapTest.xml");
+
+            if (xmlReader != null)
+                {
+                    if (scanXML(xmlReader))
+                    {
+                        (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
+                        ResultsPage scanResultsPage = new ResultsPage();
+                        NavigationService.Navigate(scanResultsPage);
+                    }
+                    else
+                    {
+                        //Display "No devices found in this scan."
+                        Console.WriteLine("No Devices found in scan. Is this a valid XML file?");
+                    }
+                }
+                else
+                {
+                    //Display error message that the file was not opened successfully.
+                    Console.WriteLine("The file was not able to be read. Check your XML file.");
+                }
+        }
     }
 }
