@@ -40,3 +40,45 @@ C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
 C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
 C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+H:\SunScan-master\SunScan-master\SunScan\bin\Debug\SunScan.exe.config
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.exe
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.pdb
+H:\SunScan-master\SunScan-master\SunScan\bin\Debug\SunScan.exe
+H:\SunScan-master\SunScan-master\SunScan\bin\Debug\SunScan.pdb
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\MainWindow.g.cs
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.g.cs
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\HomePage.g.cs
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.g.cs
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\App.g.cs
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.cache
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.lref
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\App.baml
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\MainWindow.baml
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.baml
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\HomePage.baml
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
+H:\SunScan-master\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+E:\SunScan-master\SunScan\bin\Debug\SunScan.exe.config
+E:\SunScan-master\SunScan\obj\Debug\SunScan.exe
+E:\SunScan-master\SunScan\obj\Debug\SunScan.pdb
+E:\SunScan-master\SunScan\bin\Debug\SunScan.exe
+E:\SunScan-master\SunScan\bin\Debug\SunScan.pdb
+E:\SunScan-master\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
+E:\SunScan-master\SunScan\obj\Debug\MainWindow.g.cs
+E:\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.g.cs
+E:\SunScan-master\SunScan\obj\Debug\Pages\HomePage.g.cs
+E:\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.g.cs
+E:\SunScan-master\SunScan\obj\Debug\App.g.cs
+E:\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.cache
+E:\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.lref
+E:\SunScan-master\SunScan\obj\Debug\App.baml
+E:\SunScan-master\SunScan\obj\Debug\MainWindow.baml
+E:\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.baml
+E:\SunScan-master\SunScan\obj\Debug\Pages\HomePage.baml
+E:\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
+E:\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
+E:\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
+E:\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache

@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}">Run a New Scan</Button>
+            <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}" Click="button_newScan_Click">Run a New Scan</Button>
             <Button x:Name="button_openScan" Style="{DynamicResource Button_Main}" Grid.Column="1" Click="button_openScan_Click">
                 <TextBlock x:Name="textBlock_openScan">Open Previous Scan</TextBlock>
             </Button>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///C:/Program Files (x86)/Nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.01 scan initiated Tue Mar 22 19:25:46 2016 as: nmap -sP -oX - 192.168.1.* -->
+<nmaprun scanner="nmap" args="nmap -sP -oX - 192.168.1.*" start="1458689146" startstr="Tue Mar 22 19:25:46 2016" version="7.01" xmloutputversion="1.04">
+<verbose level="0"/>
+<debugging level="0"/>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.1" addrtype="ipv4"/>
+<address addr="C8:A7:0A:9A:CE:0F" addrtype="mac" vendor="Verizon Business"/>
+<hostnames>
+<hostname name="FIOS_Quantum_Gateway.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="1000" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.101" addrtype="ipv4"/>
+<address addr="40:B7:F3:BE:C4:34" addrtype="mac" vendor="Arris Group"/>
+<hostnames>
+</hostnames>
+<times srtt="6000" rttvar="6000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.102" addrtype="ipv4"/>
+<address addr="3C:75:4A:50:46:41" addrtype="mac" vendor="Arris Group"/>
+<hostnames>
+</hostnames>
+<times srtt="5000" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.103" addrtype="ipv4"/>
+<address addr="CC:7D:37:11:CD:E2" addrtype="mac" vendor="Arris Group"/>
+<hostnames>
+</hostnames>
+<times srtt="5000" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.154" addrtype="ipv4"/>
+<address addr="10:40:F3:E9:DD:B6" addrtype="mac" vendor="Apple"/>
+<hostnames>
+<hostname name="Apple-TV.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="24000" rttvar="24000" to="120000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.171" addrtype="ipv4"/>
+<address addr="10:A5:D0:DE:12:A4" addrtype="mac" vendor="Murata Manufacturing"/>
+<hostnames>
+<hostname name="android-5b10a3c7177dc13b.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="55000" rttvar="55000" to="275000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.176" addrtype="ipv4"/>
+<address addr="00:25:56:4A:D8:A1" addrtype="mac" vendor="Hon Hai Precision Ind."/>
+<hostnames>
+</hostnames>
+<times srtt="2000" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.187" addrtype="ipv4"/>
+<address addr="40:D2:8A:20:98:D3" addrtype="mac" vendor="Nintendo"/>
+<hostnames>
+</hostnames>
+<times srtt="55000" rttvar="55000" to="275000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.216" addrtype="ipv4"/>
+<address addr="B0:A7:37:EE:F1:05" addrtype="mac" vendor="Roku"/>
+<hostnames>
+<hostname name="NP-4114AH075375.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="30000" rttvar="30000" to="150000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.225" addrtype="ipv4"/>
+<address addr="B8:3E:59:82:E1:C3" addrtype="mac" vendor="Roku"/>
+<hostnames>
+<hostname name="NP-1GJ377011441.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="30000" rttvar="30000" to="150000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.235" addrtype="ipv4"/>
+<address addr="30:52:CB:B5:5C:C9" addrtype="mac" vendor="Liteon Technology"/>
+<hostnames>
+<hostname name="dhanno.fios-router.home" type="PTR"/>
+</hostnames>
+<times srtt="118000" rttvar="118000" to="590000"/>
+</host>
+<host><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.1.162" addrtype="ipv4"/>
+<hostnames>
+<hostname name="guru-PC.fios-router.home" type="PTR"/>
+</hostnames>
+</host>
+<runstats><finished time="1458689152" timestr="Tue Mar 22 19:25:52 2016" elapsed="6.34" summary="Nmap done at Tue Mar 22 19:25:52 2016; 256 IP addresses (12 hosts up) scanned in 6.34 seconds" exit="success"/><hosts up="12" down="244" total="256"/>
+</runstats>
+</nmaprun>
+
