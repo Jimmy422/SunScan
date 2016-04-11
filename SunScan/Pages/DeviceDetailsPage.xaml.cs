@@ -35,5 +35,11 @@ namespace SunScan.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void button_manage_Click(object sender, RoutedEventArgs e)
+        {
+            ManageDevicePage manageSelectedDevicePage = new ManageDevicePage();
+            NavigationService.Navigate(manageSelectedDevicePage);
+        }
     }
 }

@@ -101,7 +101,7 @@ public class NMAPScan
             }
         }
         //finish here
-        string range = "nmap -sP -oX - " + GetRange(IPv4, subnetMask);
+        string range = "nmap -p 135 80 -oX - " + GetRange(IPv4, subnetMask);
 
         WriteFile(range, outputFile);
     }

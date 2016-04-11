@@ -27,7 +27,18 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}" Click="button_newScan_Click">Run a New Scan</Button>
+            <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}" Click="button_newScan_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Run a New Scan" />
+                    <TextBlock Grid.Row="1" Text="Icon" />
+                    <TextBlock Grid.Row="2" Text="Runs a scan to see which devices are connected to the local network." />
+                </Grid>
+            </Button>
             <Button x:Name="button_openScan" Style="{DynamicResource Button_Main}" Grid.Column="1" Click="button_openScan_Click">
                 <TextBlock x:Name="textBlock_openScan">Open Previous Scan</TextBlock>
             </Button>

@@ -40,5 +40,17 @@ namespace SunScan.Pages
                 NavigationService.Navigate(selectedDetailsPage);
             }
         }
+
+        private void button_sort_az_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<aDevice> query = foundDevices.OrderBy(aDevice => aDevice.deviceName);
+            listBox_devices.ItemsSource = query;
+        }
+
+        private void button_sort_za_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<aDevice> query = foundDevices.OrderByDescending(aDevice => aDevice.deviceName);
+            listBox_devices.ItemsSource = query;
+        }
     }
 }

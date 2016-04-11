@@ -12,6 +12,9 @@ namespace SunScan.Classes
         private string _deviceName;
         private string _deviceMAC;
         private string _deviceIP;
+        private string _devicePCName;
+
+        private int _dataUsed;
 
         private bool _smnpManageable;
         private bool _wmiManageable;
@@ -26,6 +29,9 @@ namespace SunScan.Classes
 
             _smnpManageable = false;
             _wmiManageable = false;
+
+            _devicePCName = "SURFACE-PC";
+            _dataUsed = 19;
         }
 
         public aDevice(string name, string mac, string ip)
@@ -36,6 +42,22 @@ namespace SunScan.Classes
 
             _smnpManageable = false;
             _wmiManageable = false;
+
+            _devicePCName = "SURFACE-PC";
+            _dataUsed = 19;
+        }
+
+        public aDevice(string name, string mac, string ip, bool manageable)
+        {
+            _deviceName = name;
+            _deviceMAC = mac;
+            _deviceIP = ip;
+
+            _smnpManageable = false;
+            _wmiManageable = manageable;
+
+            _devicePCName = "SURFACE-PC";
+            _dataUsed = 19;
         }
 
         public string deviceName
@@ -87,6 +109,30 @@ namespace SunScan.Classes
             set
             {
                 _smnpManageable = value;
+            }
+        }
+
+        public string devicePCName
+        {
+            get
+            {
+                return _devicePCName;
+            }
+            set
+            {
+                _devicePCName = value;
+            }
+        }
+
+        public int dataUsed
+        {
+            get
+            {
+                return _dataUsed;
+            }
+            set
+            {
+                _dataUsed = value;
             }
         }
     }

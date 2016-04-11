@@ -87,6 +87,8 @@ namespace SunScan.Pages
 
             bool hostFound = false;
 
+            bool hasWMI = false;
+
             while(xmlToScan.Read())
             {
                 if (xmlToScan.NodeType == XmlNodeType.Element)
@@ -94,6 +96,39 @@ namespace SunScan.Pages
                     if(xmlToScan.Name == "host")
                     {
                         hostFound = true;
+                    }
+
+                    if (xmlToScan.Name == "state")
+                    {
+                        if (hostFound) //We want to make sure that we're getting data for one host at a time
+                        {
+                            while (xmlToScan.MoveToNextAttribute())
+                            {
+                                switch (xmlToScan.Name)
+                                {
+                                    case "state":
+                                        if (xmlToScan.Value != "open")
+                                        {
+                                            hasWMI = false;
+                                        }
+                                        else
+                                        {
+                                            hasWMI = true;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
+                            deviceCount++;
+
+                            foundIP = "";
+                            foundMac = "";
+                            foundName = "";
+                            foundAddress = "";
+                            hasWMI = false;
+                        }
                     }
                     if(xmlToScan.Name == "address")
                     {
@@ -129,16 +164,10 @@ namespace SunScan.Pages
                         if(addressCount == 2) //Once we've found the IP and MAC address, we're done
                         {
                             addressCount = 0;
-                            hostFound = false;
+                            //hostFound = false; //Disable this right now for port scan
 
                             //Console.WriteLine("New Device: " + foundName + ". IP: " + foundIP + " MAC: " + foundMac);
-                            deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP));
-                            deviceCount++;
-
-                            foundIP = "";
-                            foundMac = "";
-                            foundName = "";
-                            foundAddress = "";
+                            
                         }
                     }
                 }

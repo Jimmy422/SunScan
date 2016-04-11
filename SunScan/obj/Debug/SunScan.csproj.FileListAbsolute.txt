@@ -103,3 +103,5 @@ H:\SunScan410\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ManageDevicePage.g.cs
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ManageDevicePage.baml

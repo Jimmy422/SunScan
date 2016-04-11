@@ -18,12 +18,17 @@
         </TextBlock>
         <Grid x:Name="grid_results" Grid.Row="1">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox ItemContainerStyle="{DynamicResource Listitem_Scan_Result}" x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" Style="{DynamicResource Device_ListBox}" >
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="button_sort_az" Click="button_sort_az_Click">Sort By Device Manufacturer A-Z</Button>
+                <Button x:Name="button_sort_za" Click="button_sort_za_Click">Sort By Device Manufacturer Z-A</Button>
+            </StackPanel>
+            <ListBox Grid.Row="1" ItemContainerStyle="{DynamicResource Listitem_Scan_Result}" x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" Style="{DynamicResource Device_ListBox}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -31,10 +36,15 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <TextBlock FontSize="14" Text="{Binding deviceName}" />
                             <TextBlock Grid.Row="1" Text="{Binding deviceIP}" />
                             <TextBlock Grid.Row="2" Text="{Binding deviceMAC}" />
+                            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                                <TextBlock Text="Is WMI Manageable: " />
+                                <TextBlock Text="{Binding wmiManageable}" />
+                            </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
