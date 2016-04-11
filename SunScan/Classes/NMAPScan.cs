@@ -1,5 +1,5 @@
 ﻿using System;
-//
+
 public class NMAPScan
 {
 
@@ -21,14 +21,22 @@ public class NMAPScan
     {
         System.Collections.Generic.List<string> cmds = new System.Collections.Generic.List<string>();
         string line = "";
-        using (System.IO.StreamReader rdr = new System.IO.StreamReader(fileName))
-        {
-            while ((line = rdr.ReadLine()) != null)
-                cmds.Add("/C " + line);
-        }
 
-        foreach (string s in cmds)
-            runCMD(s, outputFile);
+        try
+        {
+            using (System.IO.StreamReader rdr = new System.IO.StreamReader(fileName))
+            {
+                while ((line = rdr.ReadLine()) != null)
+                    cmds.Add("/C " + line);
+            }
+
+            foreach (string s in cmds)
+                runCMD(s, outputFile);
+        }
+        catch(Exception e)
+        {
+            WriteFile(e.StackTrace, "ERRORexception.txt");
+        }
     }
 
     /// <summary>
@@ -51,9 +59,9 @@ public class NMAPScan
 
         using (System.IO.StreamReader rdr = pr.StandardOutput)
         {
-            //Console.WriteLine("started process");
+            Console.WriteLine("started process");
             string output = rdr.ReadToEnd();
-            //Console.WriteLine(output);
+            Console.WriteLine(output);
             WriteFile(output, outputFileName);
         }
 
@@ -65,6 +73,100 @@ public class NMAPScan
     {
         using (System.IO.StreamWriter wr = new System.IO.StreamWriter(fileName))
             wr.WriteLine(line);
+    }
+
+    public static void GetIPConfig(string outputFile)
+    {
+        ReadCommands("ipfind.txt", "ipconf.txt");
+
+        string IPv4 = "";
+        string subnetMask = "";
+        using (System.IO.StreamReader rd = new System.IO.StreamReader("ipconf.txt"))
+        {
+            string line = "";
+
+            while((line = rd.ReadLine()) != null)
+            {
+                if(line.Contains("IPv4 Address"))
+                {
+                    string [] lines = line.Split(' ');
+                    IPv4 = lines[lines.Length - 1];
+                }
+                
+                if(line.Contains("Subnet Mask"))
+                {
+                    string [] lines = line.Split(' ');
+                    subnetMask = lines[lines.Length - 1];
+                }
+            }
+        }
+        //finish here
+        string range = "nmap -sP -oX - " + GetRange(IPv4, subnetMask);
+
+        WriteFile(range, outputFile);
+    }
+
+    //TODO it returns a string right now, maybe change to void?
+    public static string GetRange(string ip4, string mask)
+    {
+        string[] ips = ip4.Split('.');
+        string[] masks = mask.Split('.');
+
+        for (int i = 0; i < masks.Length; ++i)
+        {
+            if (masks[i] != "255")
+            {
+                ips[i] = "0-" + (255 - int.Parse(masks[i]));
+
+            }
+
+            if (masks[i] == "0")
+            {
+                ips[i] = "*";
+                break;
+            }
+        }
+
+        string toWrite = "";
+
+        //toWrite += "<";
+        for (int i = 0; i < ips.Length; ++i)
+        {
+            toWrite += ips[i];
+
+            if (i < ips.Length - 1)
+                toWrite += ".";
+        }
+        //toWrite += ">";
+
+        return toWrite;
+    }
+
+
+    //this is for debugging only!
+    public static void RunTests()
+    {
+
+        System.Collections.Generic.List<string> outs = new System.Collections.Generic.List<string>();
+
+        using (System.IO.StreamReader rd = new System.IO.StreamReader("testInput.txt"))
+        {
+            string line = "";
+
+            while ((line = rd.ReadLine()) != null)
+            {
+                string[] parts = line.Split(' ');
+
+                outs.Add(NMAPScan.GetRange(parts[0], parts[1]));
+            }
+        }
+
+        using (System.IO.StreamWriter wr = new System.IO.StreamWriter("testOutput.txt"))
+        {
+            foreach (string s in outs)
+                wr.WriteLine(s);
+        }
+
     }
 }
 

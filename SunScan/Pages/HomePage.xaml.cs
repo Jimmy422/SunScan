@@ -33,6 +33,9 @@ namespace SunScan.Pages
 
         XmlTextReader xmlReader;
 
+        string nmapCommandFile = "test1.txt";
+        string nmapXMLFile = "nmapScan.xml";
+
         public HomePage()
         {
             InitializeComponent();
@@ -184,9 +187,12 @@ namespace SunScan.Pages
         {
             //TODO: nmapTest.xml get
 
-            NMAPScan.ReadCommands("test1.txt", "nmapTest.xml");
 
-            xmlReader = new XmlTextReader("nmapTest.xml");
+            NMAPScan.GetIPConfig(nmapCommandFile);
+
+            NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
+
+            xmlReader = new XmlTextReader(nmapXMLFile);
 
             if (xmlReader != null)
                 {

@@ -24,6 +24,8 @@ namespace SunScan
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
 
         private void button_scan_Click(object sender, RoutedEventArgs e)
