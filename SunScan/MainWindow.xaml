@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunScan"
         mc:Ignorable="d"
-        Title="SunScan" Height="600" Width="1100">
+        Title="SunScan" Height="600" Width="1100" ResizeMode="CanMinimize" Icon="assets/icon.ico">
     <Grid Background="#FF1D1D1D">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -15,11 +15,36 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Button x:Name="button_home" Content="Home" Height="80" Style="{DynamicResource SideButton}" Click="button_home_Click"/>
-            <Button x:Name="button_scan" Content="Scan" Height="80" Style="{DynamicResource SideButton}"/>
-            <Button x:Name="button_manage" Content="Manage" Height="80" Style="{DynamicResource SideButton}"/>
-            <Button x:Name="button_favorites" Content="Favorites" Height="80" Style="{DynamicResource SideButton}"/>
-            <Button x:Name="button_settings" Content="Settings" Height="80" Style="{DynamicResource SideButton}"/>
+            <Button x:Name="button_home" Height="80" Style="{DynamicResource SideButton}" Click="button_home_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE80F;</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="White">Home</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_scan" Height="80" Style="{DynamicResource SideButton}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535" Text="&#xE71E;"/>
+                    <TextBlock VerticalAlignment="Center" Foreground="White">New Scan</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_scan_saved" Height="80" Style="{DynamicResource SideButton}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE8E5;</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="White">Open Scan</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_favorites" Height="80" Style="{DynamicResource SideButton}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE734;</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="White">Favorites</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_settings" Height="80" Style="{DynamicResource SideButton}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE713;</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="White">Settings</TextBlock>
+                </StackPanel>
+            </Button>
         </StackPanel>
         <Grid Grid.Column="1" Background="#FF313131">
             <Frame x:Name="frame_pages" NavigationUIVisibility="Hidden" Content="Frame" Source="Pages/HomePage.xaml" Margin="12,6"/>

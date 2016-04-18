@@ -14,9 +14,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
-            Welcome to Sunscan!
-        </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
+                Welcome to Sunscan Alpha!
+            </TextBlock>
+            <TextBlock Margin="16 27 0 0" Foreground="White" FontSize="12" FontFamily="Segoe UI Light" x:Name="scanTimeLabel">
+                Last Scan Ran at DATE AND TIME
+            </TextBlock>
+        </StackPanel>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -30,21 +35,59 @@
             <Button x:Name="button_newScan" Style="{DynamicResource Button_Main}" Click="button_newScan_Click">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="2*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Run a New Scan" />
-                    <TextBlock Grid.Row="1" Text="Icon" />
-                    <TextBlock Grid.Row="2" Text="Runs a scan to see which devices are connected to the local network." />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Top" FontSize="24" Text="New Scan" Margin="0,0,0,24" />
+                    <TextBlock TextAlignment="Center" Grid.Row="1" Text="&#xE71E;" FontSize="48" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Text="See which devices are connected" Margin="0,24,0,0" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="on the local network" Margin="0" />
                 </Grid>
             </Button>
             <Button x:Name="button_openScan" Style="{DynamicResource Button_Main}" Grid.Column="1" Click="button_openScan_Click">
-                <TextBlock x:Name="textBlock_openScan">Open Previous Scan</TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Top" FontSize="24" Text="Open Scan" Margin="0,0,0,24" />
+                    <TextBlock TextAlignment="Center" Grid.Row="1" Text="&#xE8E5;" FontSize="48" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Text="Open a previous scan file to see" Margin="0,24,0,0" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="what was connected to the network" Margin="0" />
+                </Grid>
             </Button>
-            <Button x:Name="button_manageDevices" Style="{DynamicResource Button_Main}" Grid.Column="2">Manage Devices</Button>
-            <Button x:Name="button_favoriteDevices" Style="{DynamicResource Button_Main}" Grid.Column="0" Grid.Row="1">View Favorite Devices</Button>
-            <Button x:Name="button_settings" Style="{DynamicResource Button_Main}" Grid.Column="1" Grid.Row="1">Edit Settings</Button>
+            <Button x:Name="button_favoriteDevices" Style="{DynamicResource Button_Main}" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Top" FontSize="24" Text="View Favorites" Margin="0,0,0,24" />
+                    <TextBlock TextAlignment="Center" Grid.Row="1" Text="&#xE734;" FontSize="48" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Text="See which devices from previous scans" Margin="0,24,0,0" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="have been marked as favorites" Margin="0" />
+                </Grid>
+            </Button>
+            <Button x:Name="button_settings" Style="{DynamicResource Button_Main}" Grid.Column="0" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Top" FontSize="24" Text="Settings" Margin="0,0,0,24" />
+                    <TextBlock TextAlignment="Center" Grid.Row="1" Text="&#xE713;" FontSize="48" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Text="Edit preferences regarding settings" Margin="0,24,0,0" />
+                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="such as favorites and management" Margin="0" />
+                </Grid>
+            </Button>
         </Grid>
     </Grid>
 </Page>
