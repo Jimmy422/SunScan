@@ -25,7 +25,7 @@ namespace SunScan
         {
             InitializeComponent();
 
-            
+            //NMAPScan.RunTests();
         }
 
         private void button_scan_Click(object sender, RoutedEventArgs e)

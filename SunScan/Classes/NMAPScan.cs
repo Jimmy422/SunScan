@@ -116,8 +116,18 @@ public class NMAPScan
         {
             if (masks[i] != "255")
             {
-                ips[i] = "0-" + (255 - int.Parse(masks[i]));
+                int change = 255 - int.Parse(masks[i]);
+                int intIp = int.Parse(ips[i]);
 
+                int lowChange = intIp - change;
+
+                if (lowChange < 0)
+                    lowChange = 0;
+
+                int highChange = intIp + change;
+
+                ips[i] = lowChange + "-" + highChange;
+             
             }
 
             if (masks[i] == "0")
