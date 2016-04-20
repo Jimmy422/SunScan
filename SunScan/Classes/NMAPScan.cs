@@ -1,8 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 
 public class NMAPScan
 {
-
 	public NMAPScan()
 	{
         // ReadCommands("test1.txt", "nmapTest.xml");
@@ -39,6 +39,28 @@ public class NMAPScan
         }
     }
 
+    public static void ReadCommands2(string fileName, string outputFile)
+    {
+        System.Collections.Generic.List<string> cmds = new System.Collections.Generic.List<string>();
+        string line = "";
+
+        try
+        {
+            using (System.IO.StreamReader rdr = new System.IO.StreamReader(fileName))
+            {
+                while ((line = rdr.ReadLine()) != null)
+                    cmds.Add("/C " + line);
+            }
+
+            foreach (string s in cmds)
+                runCMD2(s, outputFile);
+        }
+        catch (Exception e)
+        {
+            WriteFile(e.StackTrace, "ERRORexception.txt");
+        }
+    }
+
     /// <summary>
     /// takes care of the actual cmd process
     /// outputs the xml file
@@ -47,7 +69,30 @@ public class NMAPScan
     /// <param name="outputFileName"></param>
     static void runCMD(string command, string outputFileName)
     {
-        //Console.WriteLine(command);
+        Console.WriteLine(command);
+        System.Diagnostics.ProcessStartInfo prIn = new System.Diagnostics.ProcessStartInfo("cmd.exe");
+        prIn.Arguments = command;
+        prIn.UseShellExecute = false;
+        prIn.CreateNoWindow = true;
+        prIn.RedirectStandardOutput = true;
+        System.Diagnostics.Process pr = new System.Diagnostics.Process();
+        pr.StartInfo = prIn;
+        pr.Start();
+
+        using (System.IO.StreamReader rdr = pr.StandardOutput)
+        {
+            Console.WriteLine("started process");
+            string output = rdr.ReadToEnd();
+            Console.WriteLine(output);
+            WriteFile(output, outputFileName);
+        }
+
+        pr.WaitForExit();
+    }
+
+    static void runCMD2(string command, string outputFileName)
+    {
+        Console.WriteLine(command);
         System.Diagnostics.ProcessStartInfo prIn = new System.Diagnostics.ProcessStartInfo("cmd.exe");
         prIn.Arguments = command;
         prIn.UseShellExecute = false;
@@ -101,6 +146,7 @@ public class NMAPScan
             }
         }
         //finish here
+        //string range = "nmap -p 135 -oX " + xmlFile + " - 10.226.20.*";
         string range = "nmap -p 135 -oX " + xmlFile + " - " + GetRange(IPv4, subnetMask);
         WriteFile(range, outputFile);
     }

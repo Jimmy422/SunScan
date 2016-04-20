@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,6 +42,15 @@ namespace SunScan.Pages
             InitializeComponent();
             setupFileDialog();
             scanTimeLabel.Text = Properties.Settings.Default.lastScanRunTime.ToString();
+
+            scanBackgroundWorker.WorkerSupportsCancellation = true;
+            scanBackgroundWorker.WorkerReportsProgress = true;
+            scanBackgroundWorker.DoWork += ScanBackgroundWorker_DoWork;
+        }
+
+        private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
         }
 
         /// <summary>
@@ -219,7 +229,7 @@ namespace SunScan.Pages
 
             //NMAPScan.GetIPConfig(nmapXMLFile);
 
-            NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
+            NMAPScan.ReadCommands2(nmapCommandFile, nmapXMLFile);
 
             xmlReader = new XmlTextReader(nmapXMLFile);
 
@@ -232,7 +242,7 @@ namespace SunScan.Pages
                     //Update scan date and time
                     Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
                     Properties.Settings.Default.Save();
-                        
+
                     ResultsPage scanResultsPage = new ResultsPage();
                     NavigationService.Navigate(scanResultsPage);
                 }
@@ -247,6 +257,11 @@ namespace SunScan.Pages
                 //Display error message that the file was not opened successfully.
                 Console.WriteLine("The file was not able to be read. Check your XML file.");
             }
+            /*
+            if (scanBackgroundWorker.IsBusy != true)
+            {
+                scanBackgroundWorker.RunWorkerAsync();
+            }*/
         }
     }
 }
