@@ -47,7 +47,7 @@ public class NMAPScan
     /// <param name="outputFileName"></param>
     static void runCMD(string command, string outputFileName)
     {
-        //Console.WriteLine(command);
+        Console.WriteLine(command);
         System.Diagnostics.ProcessStartInfo prIn = new System.Diagnostics.ProcessStartInfo("cmd.exe");
         prIn.Arguments = command;
         prIn.UseShellExecute = false;
@@ -60,9 +60,9 @@ public class NMAPScan
         using (System.IO.StreamReader rdr = pr.StandardOutput)
         {
             Console.WriteLine("started process");
-            string output = rdr.ReadToEnd();
-            Console.WriteLine(output);
-            WriteFile(output, outputFileName);
+            //string output = rdr.ReadToEnd();
+            //Console.WriteLine(output);
+            //WriteFile(output, outputFileName);
         }
 
         pr.WaitForExit();
@@ -75,7 +75,7 @@ public class NMAPScan
             wr.WriteLine(line);
     }
 
-    public static void GetIPConfig(string outputFile)
+    public static void GetIPConfig(string outputFile, string xmlFile)
     {
         ReadCommands("ipfind.txt", "ipconf.txt");
 
@@ -101,8 +101,7 @@ public class NMAPScan
             }
         }
         //finish here
-        string range = "nmap -p 135 80 -oX - " + GetRange(IPv4, subnetMask);
-
+        string range = "nmap -p 135 -oX " + xmlFile + " - " + GetRange(IPv4, subnetMask);
         WriteFile(range, outputFile);
     }
 

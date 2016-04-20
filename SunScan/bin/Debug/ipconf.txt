@@ -11,7 +11,8 @@ Wireless LAN adapter Wi-Fi:
 
    Connection-specific DNS Suffix  . : 
    IPv6 Address. . . . . . . . . . . : ::19e3:3948:fca5:8930
-   Temporary IPv6 Address. . . . . . : ::b08f:750d:e004:5e1b
+   Temporary IPv6 Address. . . . . . : ::44fe:1b6e:967d:b896
+   Temporary IPv6 Address. . . . . . : ::e5e1:7fe0:5c8d:7159
    Link-local IPv6 Address . . . . . : fe80::19e3:3948:fca5:8930%16
    IPv4 Address. . . . . . . . . . . : 192.168.0.8
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
@@ -30,7 +31,7 @@ Tunnel adapter isatap.{AF26734E-91E5-40CB-B920-28B02810CDB1}:
 Tunnel adapter Teredo Tunneling Pseudo-Interface:
 
    Connection-specific DNS Suffix  . : 
-   IPv6 Address. . . . . . . . . . . : 2001:0:5ef5:79fd:1833:cb3:bedf:c169
-   Link-local IPv6 Address . . . . . : fe80::1833:cb3:bedf:c169%2
+   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:6abd:499:13c2:bedf:c169
+   Link-local IPv6 Address . . . . . : fe80::499:13c2:bedf:c169%2
    Default Gateway . . . . . . . . . : 
 

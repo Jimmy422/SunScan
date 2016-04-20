@@ -39,6 +39,7 @@ namespace SunScan.Pages
                 DeviceDetailsPage selectedDetailsPage = new DeviceDetailsPage();
                 NavigationService.Navigate(selectedDetailsPage);
             }
+            listBox_devices.SelectedItem = null;
         }
 
         private void button_sort_az_Click(object sender, RoutedEventArgs e)

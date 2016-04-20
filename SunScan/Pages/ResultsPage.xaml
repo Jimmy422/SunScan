@@ -32,18 +32,29 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Grid.RowDefinitions>
+                            <!--<Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock FontSize="14" Text="{Binding deviceName}" />
-                            <TextBlock Grid.Row="1" Text="{Binding deviceIP}" />
-                            <TextBlock Grid.Row="2" Text="{Binding deviceMAC}" />
-                            <StackPanel Grid.Row="3" Orientation="Horizontal">
-                                <TextBlock Text="Is WMI Manageable: " />
-                                <TextBlock Text="{Binding wmiManageable}" />
+                            </Grid.RowDefinitions>-->
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="{Binding wmiManageableColor}" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock FontSize="18" Text="{Binding deviceName}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="14" Text="IP Address: " />
+                                        <TextBlock FontSize="14" Text="{Binding deviceIP}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="14" Text="MAC Address: " />
+                                        <TextBlock FontSize="14" Text="{Binding deviceMAC}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="14" Foreground="{Binding wmiManageableColor}" Text="WMI Management " />
+                                        <TextBlock FontSize="14" Foreground="{Binding wmiManageableColor}" Text="{Binding wmiManageableText}" />
+                                    </StackPanel>
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

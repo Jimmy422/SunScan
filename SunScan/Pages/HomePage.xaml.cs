@@ -63,9 +63,6 @@ namespace SunScan.Pages
             }
         }
 
-        // TODO: There is an issue where the following method freezes the app.
-        // The method works, however, the stream is locking the app up
-
         /// <summary>
         /// Scans the xml file provided, and generates a list of aDevice objects based on the results.
         /// Returns true if any devices are found, false if none were found
@@ -77,10 +74,12 @@ namespace SunScan.Pages
             {
                 return false;
             }
-            string foundIP = "";
-            string foundMac = "";
-            string foundName = "";
-            string foundAddress = "";
+
+            //Initalizes values to no data
+            string foundIP = "No IP Address Available";
+            string foundMac = "No MAC Address Available";
+            string foundName = "No Manufacturer Available";
+            string foundAddress = "No Data Available";
 
             int addressCount = 0;
             int deviceCount = 0;
@@ -123,10 +122,11 @@ namespace SunScan.Pages
                             deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
                             deviceCount++;
 
-                            foundIP = "";
-                            foundMac = "";
-                            foundName = "";
-                            foundAddress = "";
+                            //Initalizes values to no data for next device
+                            foundIP = "No IP Address Available";
+                            foundMac = "No MAC Address Available";
+                            foundName = "No Manufacturer Available";
+                            foundAddress = "No Data Available";
                             hasWMI = false;
                         }
                     }
@@ -183,7 +183,7 @@ namespace SunScan.Pages
         }
 
         /// <summary>
-        /// The "Open Scan" button was clicked
+        /// The "Open Scan" button was clicked, a scan xml file will be opened
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -214,10 +214,9 @@ namespace SunScan.Pages
 
         private void button_newScan_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: nmapTest.xml get
+            NMAPScan.GetIPConfig(nmapCommandFile, nmapXMLFile);
 
-
-            NMAPScan.GetIPConfig(nmapCommandFile);
+            //NMAPScan.GetIPConfig(nmapXMLFile);
 
             NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
 

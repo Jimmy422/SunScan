@@ -19,6 +19,9 @@ namespace SunScan.Classes
         private bool _smnpManageable;
         private bool _wmiManageable;
 
+        private string _wmiManageableText;
+        private string _wmiManageableColor;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public aDevice()
@@ -29,9 +32,6 @@ namespace SunScan.Classes
 
             _smnpManageable = false;
             _wmiManageable = false;
-
-            _devicePCName = "SURFACE-PC";
-            _dataUsed = 19;
         }
 
         public aDevice(string name, string mac, string ip)
@@ -42,9 +42,6 @@ namespace SunScan.Classes
 
             _smnpManageable = false;
             _wmiManageable = false;
-
-            _devicePCName = "SURFACE-PC";
-            _dataUsed = 19;
         }
 
         public aDevice(string name, string mac, string ip, bool manageable)
@@ -56,8 +53,16 @@ namespace SunScan.Classes
             _smnpManageable = false;
             _wmiManageable = manageable;
 
-            _devicePCName = "SURFACE-PC";
-            _dataUsed = 19;
+            if(manageable)
+            {
+                _wmiManageableText = "available";
+                _wmiManageableColor = "#FFea8535";
+            }
+            else
+            {
+                _wmiManageableText = "unavailable";
+                _wmiManageableColor = "#FFFFFFFF";
+            }
         }
 
         public string deviceName
@@ -97,6 +102,30 @@ namespace SunScan.Classes
             set
             {
                 _wmiManageable = value;
+            }
+        }
+
+        public string wmiManageableText
+        {
+            get
+            {
+                return _wmiManageableText;
+            }
+            set
+            {
+                _wmiManageableText = value;
+            }
+        }
+
+        public string wmiManageableColor
+        {
+            get
+            {
+                return _wmiManageableColor;
+            }
+            set
+            {
+                _wmiManageableColor = value;
             }
         }
 
