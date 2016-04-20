@@ -16,10 +16,10 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
-                Welcome to Sunscan Alpha!
+                Welcome to SunScan!
             </TextBlock>
             <TextBlock Margin="16 27 0 0" Foreground="White" FontSize="12" FontFamily="Segoe UI Light" x:Name="scanTimeLabel">
-                Last Scan Ran at DATE AND TIME
+                Last Scan Ran: Never
             </TextBlock>
         </StackPanel>
         <Grid Grid.Row="1">

@@ -32,6 +32,9 @@ namespace SunScan.Classes
 
             _smnpManageable = false;
             _wmiManageable = false;
+
+            _wmiManageableText = "unavailable";
+            _wmiManageableColor = "#FFFFFFFF";
         }
 
         public aDevice(string name, string mac, string ip)

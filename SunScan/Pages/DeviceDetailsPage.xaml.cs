@@ -41,5 +41,10 @@ namespace SunScan.Pages
             ManageDevicePage manageSelectedDevicePage = new ManageDevicePage();
             NavigationService.Navigate(manageSelectedDevicePage);
         }
+
+        private void button_favorites_Click(object sender, RoutedEventArgs e)
+        {
+            //EACH property is going to have to be saved into a list here
+        }
     }
 }

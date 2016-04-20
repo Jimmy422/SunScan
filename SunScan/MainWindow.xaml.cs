@@ -30,7 +30,7 @@ namespace SunScan
 
         private void button_scan_Click(object sender, RoutedEventArgs e)
         {
-
+            //Fill this out when the code is done
         }
 
         private void button_home_Click(object sender, RoutedEventArgs e)

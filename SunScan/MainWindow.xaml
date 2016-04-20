@@ -27,7 +27,7 @@
                     <TextBlock VerticalAlignment="Center" Foreground="White">New Scan</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="button_scan_saved" Height="80" Style="{DynamicResource SideButton}">
+            <Button x:Name="button_scan_saved" Height="80" Style="{DynamicResource SideButton}" Click="button_scan_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE8E5;</TextBlock>
                     <TextBlock VerticalAlignment="Center" Foreground="White">Open Scan</TextBlock>

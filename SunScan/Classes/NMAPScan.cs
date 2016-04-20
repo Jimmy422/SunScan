@@ -47,7 +47,7 @@ public class NMAPScan
     /// <param name="outputFileName"></param>
     static void runCMD(string command, string outputFileName)
     {
-        Console.WriteLine(command);
+        //Console.WriteLine(command);
         System.Diagnostics.ProcessStartInfo prIn = new System.Diagnostics.ProcessStartInfo("cmd.exe");
         prIn.Arguments = command;
         prIn.UseShellExecute = false;

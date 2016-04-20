@@ -40,6 +40,7 @@ namespace SunScan.Pages
         {
             InitializeComponent();
             setupFileDialog();
+            scanTimeLabel.Text = Properties.Settings.Default.lastScanRunTime.ToString();
         }
 
         /// <summary>
@@ -223,24 +224,29 @@ namespace SunScan.Pages
             xmlReader = new XmlTextReader(nmapXMLFile);
 
             if (xmlReader != null)
+            {
+                if (scanXML(xmlReader))
                 {
-                    if (scanXML(xmlReader))
-                    {
-                        (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
-                        ResultsPage scanResultsPage = new ResultsPage();
-                        NavigationService.Navigate(scanResultsPage);
-                    }
-                    else
-                    {
-                        //Display "No devices found in this scan."
-                        Console.WriteLine("No Devices found in scan. Is this a valid XML file?");
-                    }
+                    (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
+
+                    //Update scan date and time
+                    Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
+                    Properties.Settings.Default.Save();
+                        
+                    ResultsPage scanResultsPage = new ResultsPage();
+                    NavigationService.Navigate(scanResultsPage);
                 }
                 else
                 {
-                    //Display error message that the file was not opened successfully.
-                    Console.WriteLine("The file was not able to be read. Check your XML file.");
+                    //Display "No devices found in this scan."
+                    Console.WriteLine("No Devices found in scan. Is this a valid XML file?");
                 }
+            }
+            else
+            {
+                //Display error message that the file was not opened successfully.
+                Console.WriteLine("The file was not able to be read. Check your XML file.");
+            }
         }
     }
 }

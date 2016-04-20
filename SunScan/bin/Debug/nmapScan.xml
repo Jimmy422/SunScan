@@ -1,100 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
-<?xml-stylesheet href="file:///C:/Users/James/Documents/Visual Studio 2015/Projects/SunScan/SunScan/bin/Debug/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.01 scan initiated Tue Apr 19 22:31:24 2016 as: nmap -p 135 -oX nmapScan.xml - 192.168.0.* -->
-<nmaprun scanner="nmap" args="nmap -p 135 -oX nmapScan.xml - 192.168.0.*" start="1461119484" startstr="Tue Apr 19 22:31:24 2016" version="7.01" xmloutputversion="1.04">
+<?xml-stylesheet href="file:///C:/Users/James/documents/visual studio 2015/Projects/SunScan/SunScan/bin/Debug/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.01 scan initiated Wed Apr 20 01:39:28 2016 as: nmap -p 135 -oX nmapScan.xml - 192.168.0.* -->
+<nmaprun scanner="nmap" args="nmap -p 135 -oX nmapScan.xml - 192.168.0.*" start="1461130768" startstr="Wed Apr 20 01:39:28 2016" version="7.01" xmloutputversion="1.04">
 <scaninfo type="syn" protocol="tcp" numservices="1" services="135"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.1" addrtype="ipv4"/>
 <address addr="D4:05:98:EF:BF:17" addrtype="mac" vendor="Arris Group"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="7375" rttvar="7250" to="100000"/>
+<times srtt="187750" rttvar="213000" to="1039750"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.2" addrtype="ipv4"/>
 <address addr="64:BC:0C:64:4C:20" addrtype="mac" vendor="LG Electronics"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="85125" rttvar="69000" to="361125"/>
+<times srtt="70250" rttvar="63000" to="322250"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.7" addrtype="ipv4"/>
 <address addr="6C:FD:B9:D7:55:F5" addrtype="mac" vendor="Proware Technologies"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="33375" rttvar="32250" to="162375"/>
+<times srtt="268375" rttvar="304750" to="1487375"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.12" addrtype="ipv4"/>
 <address addr="60:5B:B4:9A:FE:D5" addrtype="mac" vendor="AzureWave Technology"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="43250" rttvar="48250" to="236250"/>
+<times srtt="272375" rttvar="296750" to="1459375"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.13" addrtype="ipv4"/>
 <address addr="D4:C9:EF:5C:00:28" addrtype="mac" vendor="Hewlett Packard"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="38000" rttvar="36750" to="185000"/>
+<times srtt="271125" rttvar="296500" to="1457125"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.14" addrtype="ipv4"/>
 <address addr="00:D0:2D:70:9A:56" addrtype="mac" vendor="Ademco"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="96125" rttvar="93750" to="471125"/>
+<times srtt="275000" rttvar="288750" to="1430000"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="192.168.0.15" addrtype="ipv4"/>
-<address addr="BC:EE:7B:E1:64:B0" addrtype="mac" vendor="Asustek Computer"/>
-<hostnames>
-</hostnames>
-<ports><port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
-</ports>
-<times srtt="2000" rttvar="3750" to="100000"/>
-</host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130779"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.17" addrtype="ipv4"/>
 <address addr="60:5B:B4:90:C1:61" addrtype="mac" vendor="AzureWave Technology"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="37250" rttvar="33250" to="170250"/>
+<times srtt="88375" rttvar="98250" to="481375"/>
 </host>
-<host starttime="1461119487" endtime="1461119492"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="192.168.0.19" addrtype="ipv4"/>
-<address addr="7C:BB:8A:19:96:F7" addrtype="mac" vendor="Nintendo"/>
-<hostnames>
-</hostnames>
-<ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
-</ports>
-<times srtt="93328" rttvar="89843" to="452700"/>
-</host>
-<host starttime="1461119487" endtime="1461119493"><status state="up" reason="arp-response" reason_ttl="0"/>
+<host starttime="1461130771" endtime="1461130781"><status state="up" reason="arp-response" reason_ttl="0"/>
 <address addr="192.168.0.20" addrtype="ipv4"/>
 <address addr="00:21:5C:9F:6F:DF" addrtype="mac" vendor="Intel Corporate"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="83656" rttvar="72937" to="375404"/>
+<times srtt="210013" rttvar="215383" to="1071545"/>
 </host>
 <host starttime="0" endtime="0"><status state="up" reason="localhost-response" reason_ttl="0"/>
 <address addr="192.168.0.8" addrtype="ipv4"/>
@@ -103,6 +85,6 @@
 <ports><port protocol="tcp" portid="135"><state state="unknown" reason="no-response" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
 </host>
-<runstats><finished time="1461119493" timestr="Tue Apr 19 22:31:33 2016" elapsed="8.70" summary="Nmap done at Tue Apr 19 22:31:33 2016; 256 IP addresses (11 hosts up) scanned in 8.70 seconds" exit="success"/><hosts up="11" down="245" total="256"/>
+<runstats><finished time="1461130781" timestr="Wed Apr 20 01:39:41 2016" elapsed="12.78" summary="Nmap done at Wed Apr 20 01:39:41 2016; 256 IP addresses (9 hosts up) scanned in 12.78 seconds" exit="success"/><hosts up="9" down="247" total="256"/>
 </runstats>
 </nmaprun>

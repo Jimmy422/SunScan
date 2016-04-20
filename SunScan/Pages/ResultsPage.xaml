@@ -24,20 +24,33 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="button_sort_az" Click="button_sort_az_Click">Sort By Device Manufacturer A-Z</Button>
-                <Button x:Name="button_sort_za" Click="button_sort_za_Click">Sort By Device Manufacturer Z-A</Button>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <Button x:Name="button_sort_az" Click="button_sort_az_Click" Style="{DynamicResource Button_Generic}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8E7;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                        <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Sort List A-Z</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="button_sort_za" Click="button_sort_za_Click" Style="{DynamicResource Button_Generic}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8E8;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                        <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Sort List Z-A</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="button_ip_asc" Click="button_search_Click" Style="{DynamicResource Button_Generic}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE72C;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                        <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Reset List</TextBlock>
+                    </StackPanel>
+                </Button>
+                <TextBlock FontSize="14" VerticalAlignment="Center" Foreground="White" Margin="102,0,6,0">Search List:</TextBlock>
+                <TextBox x:Name="textBox" TextWrapping="Wrap" Width="240" Height="27" Style="{DynamicResource Textbox_search}" TextChanged="textBox_TextChanged"/>
             </StackPanel>
             <ListBox Grid.Row="1" ItemContainerStyle="{DynamicResource Listitem_Scan_Result}" x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" Style="{DynamicResource Device_ListBox}" >
+                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <!--<Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="2*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>-->
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="{Binding wmiManageableColor}" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
                                 <StackPanel Orientation="Vertical">

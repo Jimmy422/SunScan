@@ -53,5 +53,28 @@ namespace SunScan.Pages
             IEnumerable<aDevice> query = foundDevices.OrderByDescending(aDevice => aDevice.deviceName);
             listBox_devices.ItemsSource = query;
         }
+
+        private void button_search_Click(object sender, RoutedEventArgs e)
+        {
+            listBox_devices.ItemsSource = foundDevices;
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(textBox.Text != "")
+            {
+                IEnumerable<aDevice> query = foundDevices.Where(
+                    aDevice =>
+                        aDevice.deviceIP.Contains(textBox.Text.ToString()) ||
+                        aDevice.deviceMAC.ToLower().Contains(textBox.Text.ToLower().ToString()) ||
+                        aDevice.deviceName.ToLower().Contains(textBox.Text.ToLower().ToString()));
+
+                listBox_devices.ItemsSource = query;
+            }
+            else
+            {
+                listBox_devices.ItemsSource = foundDevices;
+            }
+        }
     }
 }

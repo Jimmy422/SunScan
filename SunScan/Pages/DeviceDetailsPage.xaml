@@ -34,6 +34,7 @@
             <TextBlock Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16">MAC Address:</TextBlock>
             <TextBlock x:Name="textBlock_macAddress" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
             <Button Grid.Row="2" x:Name="button_manage" Content="Manage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_manage_Click"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="button_favorites" Content="Add To Favorites" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_favorites_Click"/>
         </Grid>
     </Grid>
 </Page>
