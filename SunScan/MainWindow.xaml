@@ -34,13 +34,13 @@
                     <TextBlock VerticalAlignment="Center" Foreground="White">Open Scan</TextBlock>
                 </StackPanel>
             </Button>-->
-            <Button x:Name="button_favorites" Height="80" Style="{DynamicResource SideButton}">
+            <Button x:Name="button_favorites" Click="button_favorites_Click" Height="80" Style="{DynamicResource SideButton}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE734;</TextBlock>
                     <TextBlock VerticalAlignment="Center" Foreground="White">Favorites</TextBlock>
                 </StackPanel>
             </Button>
-            <Button x:Name="button_settings" Height="80" Style="{DynamicResource SideButton}">
+            <Button x:Name="button_settings" Click="button_settings_Click" Height="80" Style="{DynamicResource SideButton}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="24 0 20 0" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFEA8535">&#xE713;</TextBlock>
                     <TextBlock VerticalAlignment="Center" Foreground="White">Settings</TextBlock>

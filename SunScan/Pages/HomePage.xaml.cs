@@ -24,6 +24,7 @@ namespace SunScan.Pages
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
+    /// 
     public partial class HomePage : Page
     {
         OpenFileDialog getXmlDialog = new OpenFileDialog();
@@ -46,11 +47,7 @@ namespace SunScan.Pages
             scanBackgroundWorker.WorkerSupportsCancellation = true;
             scanBackgroundWorker.WorkerReportsProgress = true;
             scanBackgroundWorker.DoWork += ScanBackgroundWorker_DoWork;
-        }
-
-        private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            
+            scanBackgroundWorker.RunWorkerCompleted += ScanBackgroundWorker_RunWorkerCompleted;
         }
 
         /// <summary>
@@ -61,6 +58,27 @@ namespace SunScan.Pages
             getXmlDialog.FileName = "Scan";
             getXmlDialog.DefaultExt = ".xml";
             getXmlDialog.Filter = "SunScan Results (.xml)|*.xml";
+        }
+
+        /// <summary>
+        /// Sets the values within the status box
+        /// </summary>
+        /// <param name="scanStatus">The main header of the box</param>
+        /// <param name="errorLabelText">The text below the header, usually used for errors</param>
+        /// <param name="isProgressIndterminate">Is the progress bar scrolling?</param>
+        /// <param name="progress">The value of the progress bar (0-100)</param>
+        public void setupProgressSection(string scanStatus, string errorLabelText, bool isProgressIndeterminate, int progress)
+        {
+            scanStatusLabel.Text = scanStatus;
+            errorMessageLabel.Text = errorLabelText;
+            errorMessageLabel.Visibility = Visibility.Visible;
+            scanProgressStackPanel.Visibility = Visibility.Visible;
+            scanProgressBar.IsIndeterminate = isProgressIndeterminate;
+
+            if(!isProgressIndeterminate)
+            {
+                scanProgressBar.Value = progress;
+            }
         }
 
         /// <summary>
@@ -99,95 +117,98 @@ namespace SunScan.Pages
 
             bool hasWMI = false;
 
-            while(xmlToScan.Read())
+            try
             {
-                if (xmlToScan.NodeType == XmlNodeType.Element)
+                while (xmlToScan.Read())
                 {
-                    if(xmlToScan.Name == "host")
+                    if (xmlToScan.NodeType == XmlNodeType.Element)
                     {
-                        hostFound = true;
-                    }
-
-                    if (xmlToScan.Name == "state")
-                    {
-                        if (hostFound) //We want to make sure that we're getting data for one host at a time
+                        if (xmlToScan.Name == "host")
                         {
-                            while (xmlToScan.MoveToNextAttribute())
-                            {
-                                switch (xmlToScan.Name)
-                                {
-                                    case "state":
-                                        if (xmlToScan.Value != "open")
-                                        {
-                                            hasWMI = false;
-                                        }
-                                        else
-                                        {
-                                            hasWMI = true;
-                                        }
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
-                            deviceCount++;
-
-                            //Initalizes values to no data for next device
-                            foundIP = "No IP Address Available";
-                            foundMac = "No MAC Address Available";
-                            foundName = "No Manufacturer Available";
-                            foundAddress = "No Data Available";
-                            hasWMI = false;
-                        }
-                    }
-                    if(xmlToScan.Name == "address")
-                    {
-                        addressCount++;
-
-                        if (hostFound) //We want to make sure that we're getting data for one host at a time
-                        {
-                            while (xmlToScan.MoveToNextAttribute())
-                            {
-                                switch(xmlToScan.Name)
-                                {
-                                    case "addr": //The XML file gives us the address before the type, so we store it and categorize later.
-                                        foundAddress = xmlToScan.Value;
-                                        break;
-                                    case "addrtype":
-                                        switch(xmlToScan.Value)
-                                        {
-                                            case "ipv4":
-                                                foundIP = foundAddress;
-                                                break;
-                                            case "mac":
-                                                foundMac = foundAddress;
-                                                break;
-                                        }  
-                                        break;
-                                    case "vendor":
-                                        foundName = xmlToScan.Value + " Device";
-                                        break;
-                                }
-                            }
+                            hostFound = true;
                         }
 
-                        if(addressCount == 2) //Once we've found the IP and MAC address, we're done
+                        if (xmlToScan.Name == "state")
                         {
-                            addressCount = 0;
-                            //hostFound = false; //Disable this right now for port scan
+                            if (hostFound) //We want to make sure that we're getting data for one host at a time
+                            {
+                                while (xmlToScan.MoveToNextAttribute())
+                                {
+                                    switch (xmlToScan.Name)
+                                    {
+                                        case "state":
+                                            if (xmlToScan.Value != "open")
+                                            {
+                                                hasWMI = false;
+                                            }
+                                            else
+                                            {
+                                                hasWMI = true;
+                                            }
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
+                                deviceCount++;
 
-                            //Console.WriteLine("New Device: " + foundName + ". IP: " + foundIP + " MAC: " + foundMac);
-                            
+                                //Initalizes values to no data for next device
+                                foundIP = "No IP Address Available";
+                                foundMac = "No MAC Address Available";
+                                foundName = "No Manufacturer Available";
+                                foundAddress = "No Data Available";
+                                hasWMI = false;
+                            }
+                        }
+                        if (xmlToScan.Name == "address")
+                        {
+                            addressCount++;
+
+                            if (hostFound) //We want to make sure that we're getting data for one host at a time
+                            {
+                                while (xmlToScan.MoveToNextAttribute())
+                                {
+                                    switch (xmlToScan.Name)
+                                    {
+                                        case "addr": //The XML file gives us the address before the type, so we store it and categorize later.
+                                            foundAddress = xmlToScan.Value;
+                                            break;
+                                        case "addrtype":
+                                            switch (xmlToScan.Value)
+                                            {
+                                                case "ipv4":
+                                                    foundIP = foundAddress;
+                                                    break;
+                                                case "mac":
+                                                    foundMac = foundAddress;
+                                                    break;
+                                            }
+                                            break;
+                                        case "vendor":
+                                            foundName = xmlToScan.Value + " Device";
+                                            break;
+                                    }
+                                }
+                            }
+
+                            if (addressCount == 2) //Once we've found the IP and MAC address, we're done
+                            {
+                                addressCount = 0;
+                            }
                         }
                     }
                 }
+                if (deviceCount > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            if(deviceCount > 0)
-            {
-                return true;
-            }
-            else
+            catch
             {
                 return false;
             }
@@ -207,29 +228,35 @@ namespace SunScan.Pages
                 if(scanXML(xmlReader))
                 {
                     (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
+                    (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
+
                     ResultsPage scanResultsPage = new ResultsPage();
                     NavigationService.Navigate(scanResultsPage);
                 }
                 else
                 {
                     //Display "No devices found in this scan."
-                    Console.WriteLine("No Devices found in scan. Is this a valid XML file?");
+                    setupProgressSection("Error Processing Scan", "Something went wrong reading the scan file. Try again.", false, 0);
+                    scanProgressStackPanel.Visibility = Visibility.Collapsed;
                 }
             }
             else
             {
                 //Display error message that the file was not opened successfully.
-                Console.WriteLine("The file was not able to be read. Check your XML file.");
+                setupProgressSection("Error Processing Scan", "Something went wrong reading the scan file. Try again.", false, 0);
+                scanProgressStackPanel.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void button_newScan_Click(object sender, RoutedEventArgs e)
+        private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            NMAPScan.GetIPConfig(nmapCommandFile, nmapXMLFile);
+            NMAPScan.GetIPConfig(nmapCommandFile);
+            NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
+        }
 
-            //NMAPScan.GetIPConfig(nmapXMLFile);
-
-            NMAPScan.ReadCommands2(nmapCommandFile, nmapXMLFile);
+        private void ScanBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            setupProgressSection("Scan Complete", "Processing results.", false, 0);
 
             xmlReader = new XmlTextReader(nmapXMLFile);
 
@@ -238,7 +265,7 @@ namespace SunScan.Pages
                 if (scanXML(xmlReader))
                 {
                     (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
-
+                    (App.Current as App).freshScan = true;
                     //Update scan date and time
                     Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
                     Properties.Settings.Default.Save();
@@ -249,19 +276,28 @@ namespace SunScan.Pages
                 else
                 {
                     //Display "No devices found in this scan."
-                    Console.WriteLine("No Devices found in scan. Is this a valid XML file?");
+                    setupProgressSection("No Devices Found", "Either your network is empty, or the scan failed. Try again.", false, 0);
                 }
             }
             else
             {
                 //Display error message that the file was not opened successfully.
-                Console.WriteLine("The file was not able to be read. Check your XML file.");
+                setupProgressSection("Error Processing Scan", "Something went wrong reading the scan result. Try again.", false, 0);
             }
-            /*
-            if (scanBackgroundWorker.IsBusy != true)
-            {
-                scanBackgroundWorker.RunWorkerAsync();
-            }*/
+        }
+
+        private void button_newScan_Click(object sender, RoutedEventArgs e)
+        {
+            setupProgressSection("Scanning Network...", "Please be patient while we scan for devices. This may take a while.", true, 0);
+            scanBackgroundWorker.RunWorkerAsync();
+        }
+
+        private void button_favoriteDevices_Click(object sender, RoutedEventArgs e)
+        {
+            (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
+
+            FavoritesPage favoritesResultsPage = new FavoritesPage();
+            NavigationService.Navigate(favoritesResultsPage);
         }
     }
 }

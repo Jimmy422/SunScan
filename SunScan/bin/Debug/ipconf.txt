@@ -9,16 +9,21 @@ Wireless LAN adapter Local Area Connection* 2:
 
 Wireless LAN adapter Wi-Fi:
 
-   Connection-specific DNS Suffix  . : laptops.usf.edu.
-   IPv6 Address. . . . . . . . . . . : 2607:fe50:0:810f:85cd:6ce6:ea41:b8bb
-   Temporary IPv6 Address. . . . . . : 2607:fe50:0:810f:ad83:ab78:8aa0:70a5
-   Link-local IPv6 Address . . . . . : fe80::85cd:6ce6:ea41:b8bb%11
-   IPv4 Address. . . . . . . . . . . : 10.226.20.93
-   Subnet Mask . . . . . . . . . . . : 255.255.252.0
-   Default Gateway . . . . . . . . . : fe80::1%11
-                                       10.226.23.254
+   Connection-specific DNS Suffix  . : 
+   IPv6 Address. . . . . . . . . . . : ::19e3:3948:fca5:8930
+   Temporary IPv6 Address. . . . . . : ::3131:c108:ec73:1ba1
+   Temporary IPv6 Address. . . . . . : ::64ae:f266:f3d4:43df
+   Link-local IPv6 Address . . . . . : fe80::19e3:3948:fca5:8930%16
+   IPv4 Address. . . . . . . . . . . : 192.168.0.8
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.0.1
 
-Ethernet adapter Bluetooth Network Connection:
+Ethernet adapter Bluetooth Network Connection 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Tunnel adapter isatap.{AF26734E-91E5-40CB-B920-28B02810CDB1}:
 
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
@@ -26,12 +31,7 @@ Ethernet adapter Bluetooth Network Connection:
 Tunnel adapter Teredo Tunneling Pseudo-Interface:
 
    Connection-specific DNS Suffix  . : 
-   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:90d7:c51:51bb:7c08:1deb
-   Link-local IPv6 Address . . . . . : fe80::c51:51bb:7c08:1deb%9
+   IPv6 Address. . . . . . . . . . . : 2001:0:5ef5:79fd:2880:327a:bedf:c169
+   Link-local IPv6 Address . . . . . : fe80::2880:327a:bedf:c169%2
    Default Gateway . . . . . . . . . : 
-
-Tunnel adapter isatap.laptops.usf.edu.:
-
-   Media State . . . . . . . . . . . : Media disconnected
-   Connection-specific DNS Suffix  . : laptops.usf.edu.
 

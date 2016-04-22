@@ -14,14 +14,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
+        <TextBlock Foreground="White" Grid.Row="0" FontSize="36" FontFamily="Segoe UI Light" Margin="12 0 0 0"  Style="{DynamicResource Header_Page}">
                 Welcome to SunScan!
-            </TextBlock>
-            <TextBlock Margin="16 27 0 0" Foreground="White" FontSize="12" FontFamily="Segoe UI Light" x:Name="scanTimeLabel">
-                Last Scan Ran: Never
-            </TextBlock>
-        </StackPanel>
+        </TextBlock>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -60,7 +55,7 @@
                     <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="what was connected to the network" Margin="0" />
                 </Grid>
             </Button>
-            <Button x:Name="button_favoriteDevices" Style="{DynamicResource Button_Main}" Grid.Column="2">
+            <Button x:Name="button_favoriteDevices" Click="button_favoriteDevices_Click" Style="{DynamicResource Button_Main}" Grid.Column="2">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -88,6 +83,23 @@
                     <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3" Text="such as favorites and management" Margin="0" />
                 </Grid>
             </Button>
+            <Grid Grid.Row="1" Grid.Column="1" ColumnSpan="2" Margin="12" Background="#FF1D1D1D" Style="{DynamicResource ScanInfoBox}" >
+                <StackPanel Margin="12">
+                    <TextBlock x:Name="scanStatusLabel" Margin="0 0 0 12" Style="{DynamicResource Header_Page}" Foreground="White">Ready to Scan</TextBlock>
+                    <TextBlock Foreground="White" FontSize="16" FontFamily="Segoe UI Light" x:Name="errorMessageLabel" Visibility="Collapsed">
+                        GENERIC ERROR MESSAGE
+                    </TextBlock>
+                    <StackPanel x:Name="scanProgressStackPanel" Visibility="Collapsed" Margin="0 12 0 0" Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="16" FontFamily="Segoe UI Light">
+                        Scan Progress:
+                        </TextBlock>
+                        <ProgressBar x:Name="scanProgressBar" VerticalAlignment="Center" Value="0" Height="14" Margin="12 0 0 0" Width="645" IsIndeterminate="false"></ProgressBar>
+                    </StackPanel>
+                    <TextBlock Foreground="White" FontSize="16" Margin="0 12 0 12" FontFamily="Segoe UI Light" x:Name="scanTimeLabel">
+                        Last Scan Ran: Never
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
     <Setting Name="lastScanRunTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">Last Scan Ran: Never</Value>
     </Setting>
-    <Setting Name="favoritesList" Type="System.Collections.ArrayList" Scope="User">
+    <Setting Name="favoritesList" Type="System.Collections.Generic.List&lt;SunScan.Classes.aDevice&gt;" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

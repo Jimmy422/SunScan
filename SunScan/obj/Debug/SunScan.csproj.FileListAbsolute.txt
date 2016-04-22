@@ -1,24 +1,3 @@
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.exe.config
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.exe
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.pdb
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\MainWindow.g.cs
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\App.g.cs
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan_MarkupCompile.cache
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan_MarkupCompile.lref
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\MainWindow.baml
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.g.resources
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.Properties.Resources.resources
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.exe
-c:\users\james\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.pdb
-C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\HomePage.g.cs
-C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\HomePage.baml
-C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\App.baml
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ResultsPage.g.cs
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ResultsPage.baml
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\DeviceDetailsPage.g.cs
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\DeviceDetailsPage.baml
 C:\Users\James K\Desktop\SunScan-master\SunScan\bin\Debug\SunScan.exe.config
 C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\SunScan.exe
 C:\Users\James K\Desktop\SunScan-master\SunScan\obj\Debug\SunScan.pdb
@@ -103,8 +82,6 @@ H:\SunScan410\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 H:\SunScan410\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ManageDevicePage.g.cs
-C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ManageDevicePage.baml
 H:\SunScan-master\SunScan\bin\Debug\SunScan.exe.config
 H:\SunScan-master\SunScan\obj\Debug\SunScan.exe
 H:\SunScan-master\SunScan\obj\Debug\SunScan.pdb
@@ -151,3 +128,26 @@ C:\Users\James K\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug
 C:\Users\James K\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.g.resources
 C:\Users\James K\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 C:\Users\James K\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.exe.config
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.exe
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\bin\Debug\SunScan.pdb
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\MainWindow.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\DeviceDetailsPage.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\HomePage.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ResultsPage.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\App.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan_MarkupCompile.cache
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan_MarkupCompile.lref
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\App.baml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\MainWindow.baml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\DeviceDetailsPage.baml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\HomePage.baml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\ResultsPage.baml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.g.resources
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.Properties.Resources.resources
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.exe
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.pdb
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\FavoritesPage.g.cs
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\FavoritesPage.baml

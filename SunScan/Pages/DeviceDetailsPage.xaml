@@ -17,24 +17,36 @@
             <ColumnDefinition Width="60" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="button_back" Grid.ColumnSpan="2" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click"/>
-        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light" Text="Device Title" Margin="8 0 0 8" />
-        <Grid Grid.ColumnSpan="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Foreground="White" Margin="0 0 16 16" FontSize="16">IP Address:</TextBlock>
-            <TextBlock x:Name="textBlock_ipAddress" Grid.Column="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-            <TextBlock Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16">MAC Address:</TextBlock>
-            <TextBlock x:Name="textBlock_macAddress" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-            <Button Grid.Row="2" x:Name="button_manage" Content="Manage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_manage_Click"/>
-            <Button Grid.Row="2" Grid.Column="1" x:Name="button_favorites" Content="Add To Favorites" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_favorites_Click"/>
+        <Button x:Name="button_back" Grid.ColumnSpan="2" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click" Style="{DynamicResource TransparentBackgroundButton}" FontFamily="Segoe MDL2 Assets" />
+        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Device Title" />
+        <Grid Grid.ColumnSpan="2" Grid.Row="1" Style="{DynamicResource ScanInfoBox}" >
+            <StackPanel>
+                <StackPanel Margin="0 0 0 24" Orientation="Horizontal">
+                    <Button Margin="0 0 12 0" x:Name="button_manage" Content="Manage at Access Point (If Available)" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource Button_Generic}" Click="button_manage_Click"/>
+                    <Button x:Name="button_favorites" Content="Add To Favorites" Style="{DynamicResource Button_Generic}" Click="button_favorites_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 16" FontSize="18">Device IP Address:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_ipAddress" Grid.Column="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device MAC Address:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_macAddress" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">WMI Management:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_wmiAvailable" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Operating System:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_opsys" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">PC Name:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_pcname" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+            </StackPanel>
+            
         </Grid>
     </Grid>
 </Page>

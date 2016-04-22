@@ -37,9 +37,9 @@ namespace SunScan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.ArrayList favoritesList {
+        public global::System.Collections.Generic.List<SunScan.Classes.aDevice> favoritesList {
             get {
-                return ((global::System.Collections.ArrayList)(this["favoritesList"]));
+                return ((global::System.Collections.Generic.List<SunScan.Classes.aDevice>)(this["favoritesList"]));
             }
             set {
                 this["favoritesList"] = value;

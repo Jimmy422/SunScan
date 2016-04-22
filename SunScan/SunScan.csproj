@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,9 +78,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ManageDevicePage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Pages\FavoritesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\ResultsPage.xaml">
       <SubType>Designer</SubType>
@@ -93,8 +94,8 @@
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ManageDevicePage.xaml.cs">
-      <DependentUpon>ManageDevicePage.xaml</DependentUpon>
+    <Compile Include="Pages\FavoritesPage.xaml.cs">
+      <DependentUpon>FavoritesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ResultsPage.xaml.cs">
       <DependentUpon>ResultsPage.xaml</DependentUpon>

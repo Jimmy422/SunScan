@@ -21,13 +21,13 @@ namespace SunScan.Pages
     /// <summary>
     /// Interaction logic for ResultsPage.xaml
     /// </summary>
-    public partial class ResultsPage : Page
+    public partial class FavoritesPage : Page
     {
-        List<aDevice> foundDevices = (App.Current as App).deviceList;
+        List<aDevice> foundDevices = Properties.Settings.Default.favoritesList;
 
         SaveFileDialog saveXMLFileDialog = new SaveFileDialog();
 
-        public ResultsPage()
+        public FavoritesPage()
         {
             InitializeComponent();
             listBox_devices.ItemsSource = foundDevices;

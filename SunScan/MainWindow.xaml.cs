@@ -28,15 +28,22 @@ namespace SunScan
             //NMAPScan.RunTests();
         }
 
-        private void button_scan_Click(object sender, RoutedEventArgs e)
-        {
-            //Fill this out when the code is done
-        }
-
         private void button_home_Click(object sender, RoutedEventArgs e)
         {
             Uri homePage = new Uri("Pages/HomePage.xaml", UriKind.Relative);
             frame_pages.Source = homePage;
+        }
+
+        private void button_favorites_Click(object sender, RoutedEventArgs e)
+        {
+            (App.Current as App).freshScan = false;
+            Uri homePage = new Uri("Pages/FavoritesPage.xaml", UriKind.Relative);
+            frame_pages.Source = homePage;
+        }
+
+        private void button_settings_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
