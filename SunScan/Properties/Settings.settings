@@ -8,5 +8,14 @@
     <Setting Name="favoritesList" Type="System.Collections.Generic.List&lt;SunScan.Classes.aDevice&gt;" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="overwriteIP" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ipToOverwrite" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ipScanRange" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

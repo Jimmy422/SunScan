@@ -299,5 +299,11 @@ namespace SunScan.Pages
             FavoritesPage favoritesResultsPage = new FavoritesPage();
             NavigationService.Navigate(favoritesResultsPage);
         }
+
+        private void button_settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsPage settingsPage = new SettingsPage();
+            NavigationService.Navigate(settingsPage);
+        }
     }
 }

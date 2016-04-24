@@ -114,6 +114,7 @@ public class NMAPScan
         (App.Current as App).scanGateway = defaultGateway;
 
         string range = "nmap -p 135 -oX - " + GetRange(IPv4, subnetMask);
+        //string range = "nmap -p 135 -oX - 10.226.20.*";
         WriteFile(range, outputFile);
     }
 

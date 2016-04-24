@@ -151,3 +151,5 @@ C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\S
 C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
 C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\FavoritesPage.g.cs
 C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\FavoritesPage.baml
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\SettingsPage.g.cs
+C:\Users\James\documents\visual studio 2015\Projects\SunScan\SunScan\obj\Debug\Pages\SettingsPage.baml

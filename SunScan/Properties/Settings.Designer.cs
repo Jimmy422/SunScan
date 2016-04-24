@@ -45,5 +45,41 @@ namespace SunScan.Properties {
                 this["favoritesList"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool overwriteIP {
+            get {
+                return ((bool)(this["overwriteIP"]));
+            }
+            set {
+                this["overwriteIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ipToOverwrite {
+            get {
+                return ((string)(this["ipToOverwrite"]));
+            }
+            set {
+                this["ipToOverwrite"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ipScanRange {
+            get {
+                return ((int)(this["ipScanRange"]));
+            }
+            set {
+                this["ipScanRange"] = value;
+            }
+        }
     }
 }

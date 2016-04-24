@@ -43,7 +43,8 @@ namespace SunScan
 
         private void button_settings_Click(object sender, RoutedEventArgs e)
         {
-
+            Uri settingsPage = new Uri("Pages/SettingsPage.xaml", UriKind.Relative);
+            frame_pages.Source = settingsPage;
         }
     }
 }
