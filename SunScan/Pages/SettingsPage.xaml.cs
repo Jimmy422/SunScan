@@ -53,7 +53,7 @@ namespace SunScan.Pages
             Properties.Settings.Default.ipScanRange = scanRange; //This is the +/- range specified in the text box
             Properties.Settings.Default.Save();
 
-            if(scanRange > 0 && !(Properties.Settings.Default.overwriteIP))
+            if(!(Properties.Settings.Default.overwriteIP))
             {
                 ChangeIPRange();
             }
@@ -103,32 +103,50 @@ namespace SunScan.Pages
 
             string ipRangeNoNmap = "";
 
-            for (int i = 0; i < ipParts.Length; ++i)
+            for (int i = 0; i < ipParts.Length-1; ++i)
             {
 
-                if (ipParts[i].Contains("-"))
+                if (ipParts[i+1].Contains("*"))
                 {
                     int range = Properties.Settings.Default.ipScanRange;
 
-                    string[] rangeParts = ipParts[i].Split('-');
+                    int high = 0;
+                    int low = 0;
 
-                    //NMAPScan.WriteFile(rangeParts.Length + " " + rangeParts[0] + " " + rangeParts[1], "rangeparts.txt");
+                    int difference = 0;
 
-                    int low = int.Parse(rangeParts[0]);
-                    int high = int.Parse(rangeParts[1]);
+                    if (ipParts[i].Contains("-"))
+                    {
+                        string[] rangeParts = ipParts[i].Split('-');
 
-                    int difference = (high - low) / 2;
+                        //NMAPScan.WriteFile(rangeParts.Length + " " + rangeParts[0] + " " + rangeParts[1], "rangeparts.txt");
+
+                        low = int.Parse(rangeParts[0]);
+                        high = int.Parse(rangeParts[1]);
+
+                        difference = (high - low) / 2;
+                    }
+                    else
+                    {
+                        difference = int.Parse(ipParts[i]);
+
+                    }
 
                     defaultIP = low + difference;
 
                     low = defaultIP - range;
 
-                    if (low < 1)
-                        low = 1;
+                    if (low < 0)
+                        low = 0;
 
                     high = defaultIP + range;
 
                     string newRange = low + "-" + high;
+
+                    if (range == 0)
+                    {
+                        newRange = ( (high + low)/2 ) + "";
+                    }
 
                     ipParts[i] = newRange;
                 }
@@ -141,8 +159,10 @@ namespace SunScan.Pages
                     ipRangeNoNmap += ".";
                     newIPAddressRange += ".";
                 }
-            }
 
+            }
+            ipRangeNoNmap += "*";
+            newIPAddressRange += "*";
             //NMAPScan.WriteFile(Properties.Settings.Default.overwriteIP + " " + Properties.Settings.Default.ipToOverwrite +  " " + newIPAddressRange, "testBoolean.txt");
 
             SunScan.Properties.Settings.Default.ipToScan = ipRangeNoNmap;

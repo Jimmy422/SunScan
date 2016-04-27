@@ -2,35 +2,57 @@
 Windows IP Configuration
 
 
+Ethernet adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
 Wireless LAN adapter Local Area Connection* 2:
 
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
 
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::acec:c82d:1179:e9c%9
+   IPv4 Address. . . . . . . . . . . : 192.168.182.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Ethernet 3:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::f14d:9c49:6f27:5e1%12
+   IPv4 Address. . . . . . . . . . . : 192.168.8.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
 Wireless LAN adapter Wi-Fi:
 
-   Connection-specific DNS Suffix  . : 
-   IPv6 Address. . . . . . . . . . . : ::19e3:3948:fca5:8930
-   Temporary IPv6 Address. . . . . . : ::d9a8:a786:965c:871b
-   Link-local IPv6 Address . . . . . : fe80::19e3:3948:fca5:8930%16
-   IPv4 Address. . . . . . . . . . . : 192.168.0.8
+   Connection-specific DNS Suffix  . : fios-router.home
+   Link-local IPv6 Address . . . . . : fe80::9514:8c66:b89c:6b29%10
+   IPv4 Address. . . . . . . . . . . : 192.168.1.162
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   Default Gateway . . . . . . . . . : 192.168.0.1
+   Default Gateway . . . . . . . . . : 192.168.1.1
 
-Ethernet adapter Bluetooth Network Connection 2:
-
-   Media State . . . . . . . . . . . : Media disconnected
-   Connection-specific DNS Suffix  . : 
-
-Tunnel adapter isatap.{AF26734E-91E5-40CB-B920-28B02810CDB1}:
+Ethernet adapter Ethernet:
 
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
 
-Tunnel adapter Teredo Tunneling Pseudo-Interface:
+Tunnel adapter isatap.fios-router.home:
 
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : fios-router.home
+
+Tunnel adapter isatap.{C221B1C9-48E1-42B4-9079-6E480FFFEBF6}:
+
+   Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . : 
-   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:6ab8:3802:109a:bedf:c169
-   Link-local IPv6 Address . . . . . : fe80::3802:109a:bedf:c169%2
-   Default Gateway . . . . . . . . . : 
+
+Tunnel adapter isatap.{B2FB22F3-B31E-4F3E-8AFB-DE3080AE715A}:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
 
