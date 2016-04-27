@@ -250,8 +250,11 @@ namespace SunScan.Pages
 
         private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            
-            NMAPScan.GetIPConfig(nmapCommandFile);
+
+            if ( (!Properties.Settings.Default.overwriteIP && Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
+            {
+                NMAPScan.GetIPConfig(nmapCommandFile);
+            }
 
             NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
         }
