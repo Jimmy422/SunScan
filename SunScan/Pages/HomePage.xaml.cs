@@ -250,7 +250,9 @@ namespace SunScan.Pages
 
         private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            
             NMAPScan.GetIPConfig(nmapCommandFile);
+
             NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
         }
 

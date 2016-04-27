@@ -71,7 +71,7 @@ public class NMAPScan
     }
 
     //easier to just call the streamreader using this function
-    static void WriteFile(string line, string fileName)
+    public static void WriteFile(string line, string fileName)
     {
         using (System.IO.StreamWriter wr = new System.IO.StreamWriter(fileName))
             wr.WriteLine(line);
