@@ -10,13 +10,13 @@ Wireless LAN adapter Local Area Connection* 2:
 Wireless LAN adapter Wi-Fi:
 
    Connection-specific DNS Suffix  . : laptops.usf.edu.
-   IPv6 Address. . . . . . . . . . . : 2607:fe50:0:8524:85cd:6ce6:ea41:b8bb
-   Temporary IPv6 Address. . . . . . : 2607:fe50:0:8524:e14a:7522:1ba0:6a9c
-   Link-local IPv6 Address . . . . . : fe80::85cd:6ce6:ea41:b8bb%8
-   IPv4 Address. . . . . . . . . . . : 10.226.136.146
+   IPv6 Address. . . . . . . . . . . : 2607:fe50:0:810b:85cd:6ce6:ea41:b8bb
+   Temporary IPv6 Address. . . . . . : 2607:fe50:0:810b:c9f0:f611:d11e:c510
+   Link-local IPv6 Address . . . . . : fe80::85cd:6ce6:ea41:b8bb%16
+   IPv4 Address. . . . . . . . . . . : 10.226.4.47
    Subnet Mask . . . . . . . . . . . : 255.255.252.0
-   Default Gateway . . . . . . . . . : fe80::1%8
-                                       10.226.139.254
+   Default Gateway . . . . . . . . . : fe80::1%16
+                                       10.226.7.254
 
 Ethernet adapter Bluetooth Network Connection:
 
@@ -31,7 +31,7 @@ Tunnel adapter isatap.laptops.usf.edu.:
 Tunnel adapter Teredo Tunneling Pseudo-Interface:
 
    Connection-specific DNS Suffix  . : 
-   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:90d7:c2d:526:f51d:776d
-   Link-local IPv6 Address . . . . . : fe80::c2d:526:f51d:776d%4
+   IPv6 Address. . . . . . . . . . . : 2001:0:9d38:90d7:1847:1350:f51d:fbd0
+   Link-local IPv6 Address . . . . . : fe80::1847:1350:f51d:fbd0%9
    Default Gateway . . . . . . . . . : 
 

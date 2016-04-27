@@ -89,12 +89,29 @@ namespace SunScan.Pages
         private void button_favorites_Click(object sender, RoutedEventArgs e)
         {
             // This does not work properly! Fix this before release. Needs to be multiple lists under the settings file.
-            if (Properties.Settings.Default.favoritesList == null)
+            if(Properties.Settings.Default.favoriteIP == null)
             {
-                Properties.Settings.Default.favoritesList = new List<aDevice>();  
+                Properties.Settings.Default.favoriteIP = new List<string>();
             }
-            Properties.Settings.Default.favoritesList.Add(selectedDevice);
-            Properties.Settings.Default.Save();
+
+            if (Properties.Settings.Default.favoriteMAC == null)
+            {
+                Properties.Settings.Default.favoriteMAC = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoriteManufacturer == null)
+            {
+                Properties.Settings.Default.favoriteManufacturer = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoriteWMI == null)
+            {
+                Properties.Settings.Default.favoriteWMI = new List<string>();
+            }
+
+            Properties.Settings.Default.favoriteIP.Add(selectedDevice.deviceIP);
+            Properties.Settings.Default.favoriteMAC.Add(selectedDevice.deviceMAC);
+            Properties.Settings.Default.favoriteManufacturer.Add(selectedDevice.deviceName);
         }
     }
 }

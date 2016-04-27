@@ -3,6 +3,7 @@ using SunScan.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,8 @@ namespace SunScan.Pages
         BackgroundWorker scanBackgroundWorker = new BackgroundWorker();
 
         XmlTextReader xmlReader;
+
+        bool scanStopped = false;
 
         string nmapCommandFile = "test1.txt";
         string nmapXMLFile = "nmapScan.xml";
@@ -270,41 +273,46 @@ namespace SunScan.Pages
 
         private void ScanBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            setupProgressSection("Scan Complete", "Processing results.", false, 0);
-
-            xmlReader = new XmlTextReader(nmapXMLFile);
-
-            if (xmlReader != null)
+            if (!scanStopped)
             {
-                if (scanXML(xmlReader))
+                setupProgressSection("Scan Complete", "Processing results.", false, 0);
+
+                xmlReader = new XmlTextReader(nmapXMLFile);
+
+                if (xmlReader != null)
                 {
-                    (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
-                    (App.Current as App).freshScan = true;
-                    //Update scan date and time
-                    Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
-                    Properties.Settings.Default.Save();
+                    if (scanXML(xmlReader))
+                    {
+                        (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
+                        (App.Current as App).freshScan = true;
+                        //Update scan date and time
+                        Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
+                        Properties.Settings.Default.Save();
 
-                    Properties.Settings.Default.windowNotLocked = true;
-                    Properties.Settings.Default.Save();
+                        Properties.Settings.Default.windowNotLocked = true;
+                        Properties.Settings.Default.Save();
 
-                    ResultsPage scanResultsPage = new ResultsPage();
-                    NavigationService.Navigate(scanResultsPage);
+                        ResultsPage scanResultsPage = new ResultsPage();
+                        NavigationService.Navigate(scanResultsPage);
+                    }
+                    else
+                    {
+                        //Display "No devices found in this scan."
+                        setupProgressSection("No Devices Found", "Either your network is empty, or the scan failed. Try again.", false, 0);
+                        Properties.Settings.Default.windowNotLocked = true;
+                        Properties.Settings.Default.Save();
+                    }
                 }
                 else
                 {
-                    //Display "No devices found in this scan."
-                    setupProgressSection("No Devices Found", "Either your network is empty, or the scan failed. Try again.", false, 0);
+                    //Display error message that the file was not opened successfully.
+                    setupProgressSection("Error Processing Scan", "Something went wrong reading the scan result. Try again.", false, 0);
                     Properties.Settings.Default.windowNotLocked = true;
                     Properties.Settings.Default.Save();
                 }
             }
-            else
-            {
-                //Display error message that the file was not opened successfully.
-                setupProgressSection("Error Processing Scan", "Something went wrong reading the scan result. Try again.", false, 0);
-                Properties.Settings.Default.windowNotLocked = true;
-                Properties.Settings.Default.Save();
-            }
+            scanStopped = false;
+
         }
 
         private void button_newScan_Click(object sender, RoutedEventArgs e)
@@ -342,6 +350,31 @@ namespace SunScan.Pages
                 SettingsPage settingsPage = new SettingsPage();
                 NavigationService.Navigate(settingsPage);
             }
+        }
+
+        private void button_stop_scan_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                scanStopped = true;
+
+                Process[] proc = Process.GetProcessesByName("nmap");
+                
+                foreach(Process process in proc)
+                {
+                    process.Kill();
+                }
+
+                setupProgressSection("Scan Cancelled", "The scan was cancelled by the user.", false, 0);
+                Properties.Settings.Default.windowNotLocked = true;
+            }
+            catch
+            {
+                setupProgressSection("Error", "The nmap process was unable to stop.", false, 0);
+
+                scanStopped = false;
+            }
+            
         }
     }
 }

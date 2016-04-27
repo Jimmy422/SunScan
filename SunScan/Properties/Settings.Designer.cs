@@ -117,5 +117,49 @@ namespace SunScan.Properties {
                 this["windowNotLocked"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoriteManufacturer {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoriteManufacturer"]));
+            }
+            set {
+                this["favoriteManufacturer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoriteIP {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoriteIP"]));
+            }
+            set {
+                this["favoriteIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoriteMAC {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoriteMAC"]));
+            }
+            set {
+                this["favoriteMAC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoriteWMI {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoriteWMI"]));
+            }
+            set {
+                this["favoriteWMI"] = value;
+            }
+        }
     }
 }

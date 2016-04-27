@@ -23,18 +23,42 @@ namespace SunScan.Pages
     /// </summary>
     public partial class FavoritesPage : Page
     {
-        List<aDevice> foundDevices = Properties.Settings.Default.favoritesList;
-
         SaveFileDialog saveXMLFileDialog = new SaveFileDialog();
+
+        List<aDevice> foundDevices;
+        List<string> favIPList;
+        List<string> favMACList;
+
 
         public FavoritesPage()
         {
             InitializeComponent();
+            calculateFavorites();
+
+            foundDevices = Properties.Settings.Default.favoritesList;
+
             listBox_devices.ItemsSource = foundDevices;
             if((App.Current as App).freshScan)
             {
                 button_saveScan.Visibility = Visibility.Visible;
             }
+        }
+
+        public void calculateFavorites()
+        {
+            if()
+            {
+                List<string> favIPList = Properties.Settings.Default.favoriteIP;
+                List<string> favMACList = Properties.Settings.Default.favoriteMAC;
+                List<string> favManuList = Properties.Settings.Default.favoriteManufacturer;
+
+                for (int i = 0; i < favIPList.Count; i++)
+                {
+                    aDevice newDevice = new aDevice(favManuList[i], favMACList[i], favIPList[i]);
+                    Properties.Settings.Default.favoritesList.Add(newDevice);
+                }
+            }
+            
         }
 
         private void listBox_devices_SelectionChanged(object sender, SelectionChangedEventArgs e)
