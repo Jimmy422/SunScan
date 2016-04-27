@@ -113,8 +113,13 @@ public class NMAPScan
         //string range = "nmap -p 135 -oX " + xmlFile + " - 10.226.20.*";
         (App.Current as App).scanGateway = defaultGateway;
 
-        string range = "nmap -p 135 -oX - " + GetRange(IPv4, subnetMask);
-        //string range = "nmap -p 135 -oX - 10.226.20.*";
+        string scanIP = GetRange(IPv4, subnetMask);
+
+        SunScan.Properties.Settings.Default.ipToScan = scanIP;
+        SunScan.Properties.Settings.Default.Save();
+
+        string range = SunScan.Properties.Settings.Default.nmapCommand + scanIP;
+
         WriteFile(range, outputFile);
     }
 
@@ -139,7 +144,6 @@ public class NMAPScan
                 int highChange = intIp + change;
 
                 ips[i] = lowChange + "-" + highChange;
-             
             }
 
             if (masks[i] == "0")
@@ -168,7 +172,6 @@ public class NMAPScan
     //this is for debugging only!
     public static void RunTests()
     {
-
         System.Collections.Generic.List<string> outs = new System.Collections.Generic.List<string>();
 
         using (System.IO.StreamReader rd = new System.IO.StreamReader("testInput.txt"))

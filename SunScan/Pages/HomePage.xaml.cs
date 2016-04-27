@@ -250,12 +250,6 @@ namespace SunScan.Pages
 
         private void ScanBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-
-            if ( (!Properties.Settings.Default.overwriteIP && Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
-            {
-                NMAPScan.GetIPConfig(nmapCommandFile);
-            }
-
             NMAPScan.ReadCommands(nmapCommandFile, nmapXMLFile);
         }
 
@@ -293,7 +287,12 @@ namespace SunScan.Pages
 
         private void button_newScan_Click(object sender, RoutedEventArgs e)
         {
-            setupProgressSection("Scanning Network...", "Please be patient while we scan for devices. This may take a while.", true, 0);
+            if ((!Properties.Settings.Default.overwriteIP && Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
+            {
+                NMAPScan.GetIPConfig(nmapCommandFile);
+            }
+
+            setupProgressSection("Scanning " + Properties.Settings.Default.ipToScan, "Please be patient while we scan for devices. This may take a while.", true, 0);
             scanBackgroundWorker.RunWorkerAsync();
         }
 

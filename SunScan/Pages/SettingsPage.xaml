@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,27 +18,47 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button x:Name="button_back" Grid.ColumnSpan="2" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click" Style="{DynamicResource TransparentBackgroundButton}" FontFamily="Segoe MDL2 Assets" />
-        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Settings" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light" Style="{DynamicResource Header_Page}" Text="Settings" />
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Style="{DynamicResource ScanInfoBox}" >
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 16" FontSize="18">IP Address Range (+/-):</TextBlock>
-                    <TextBox VerticalAlignment="Center" x:Name="ipRangeBox" Width="100" Height="25" />
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">NMAP Command Being Ran:</TextBlock>
+                    <TextBlock x:Name="textbox_nmapcommand" VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">Command</TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Overwrite Scan IP Address:</TextBlock>
-                    <TextBlock Text="Yes" />
-                    <RadioButton x:Name="radio_overwrite_checked" GroupName="radio_overwrite"/>
-                    <TextBlock Text="No" />
-                    <RadioButton x:Name="radio_overwrite_unchecked" GroupName="radio_overwrite" IsChecked="True" />
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address Range (+/-):</TextBlock>
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="ipRangeBox" Width="25" Height="25" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 16" FontSize="18">IP Address To Overwrite:</TextBlock>
-                    <TextBox VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="25" />
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 0" Foreground="White" FontSize="18">Overwrite Scan IP Address:</TextBlock>
+                    <CheckBox x:Name="checkBox_overwrite" VerticalAlignment="Center" IsChecked="False" Checked="checkBox_overwrite_Checked" Unchecked="checkBox_overwrite_Unchecked"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="button_saveSettings" Click="button_saveSettings_Click">Save Settings</Button>
-                    <Button x:Name="button_clearFavorites" Click="button_clearFavorites_Click">Clear Favorites</Button>
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address To Overwrite:</TextBlock>
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="25" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <Button Style="{DynamicResource Button_Generic}" Margin="0 0 16 0" x:Name="button_saveSettings" Click="button_saveSettings_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE74E;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                            <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Save Settings</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{DynamicResource Button_Generic}" x:Name="button_clearFavorites" Click="button_clearFavorites_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8D9;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                            <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Clear Favorites</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Visibility="Collapsed" x:Name="textbox_settings_saved" Foreground="White" FontSize="18" VerticalAlignment="Center">Settings Saved</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="About" />
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 0 12" Foreground="White" FontSize="18">SunScan 1.0.0</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 0 24" Foreground="White" FontSize="18">Designed for SunView Inc. for University of South Florida Senior Project - Spring 2016</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">UI and NMAP Scan XML Parsing by James Keith</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">IP Retreval and Setup by Roger Milton</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">Management Research and Various Code by Seth Kenney</TextBlock>
                 </StackPanel>
             </StackPanel>
             

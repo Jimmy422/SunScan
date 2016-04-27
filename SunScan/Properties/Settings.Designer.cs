@@ -81,5 +81,29 @@ namespace SunScan.Properties {
                 this["ipScanRange"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Network")]
+        public string ipToScan {
+            get {
+                return ((string)(this["ipToScan"]));
+            }
+            set {
+                this["ipToScan"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("nmap -p 135 -oX - ")]
+        public string nmapCommand {
+            get {
+                return ((string)(this["nmapCommand"]));
+            }
+            set {
+                this["nmapCommand"] = value;
+            }
+        }
     }
 }

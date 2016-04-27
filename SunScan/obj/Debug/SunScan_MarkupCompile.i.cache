@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\guru\Downloads\SunScan425\SunScan-master\SunScan\obj\Debug\
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\
 SunScan
 none
 false
 DEBUG;TRACE
-C:\Users\guru\Downloads\SunScan425\SunScan-master\SunScan\App.xaml
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\App.xaml
 6-2039231142
 
-16-1387420957
+16-895500394
 14-648916988
 MainWindow.xaml;Pages\SettingsPage.xaml;Pages\DeviceDetailsPage.xaml;Pages\HomePage.xaml;Pages\FavoritesPage.xaml;Pages\ResultsPage.xaml;
 
-False
+True
 

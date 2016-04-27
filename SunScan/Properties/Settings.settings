@@ -17,5 +17,11 @@
     <Setting Name="ipScanRange" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="ipToScan" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Network</Value>
+    </Setting>
+    <Setting Name="nmapCommand" Type="System.String" Scope="User">
+      <Value Profile="(Default)">nmap -p 135 -oX - </Value>
+    </Setting>
   </Settings>
 </SettingsFile>

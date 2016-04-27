@@ -24,14 +24,17 @@ namespace SunScan.Pages
     /// </summary>
     public partial class SettingsPage : Page
     {
+        string nmapCommandFile = "test1.txt";
+
         public SettingsPage()
         {
             InitializeComponent();
 
             overwriteIPBox.Text = Properties.Settings.Default.ipToOverwrite;
             ipRangeBox.Text = Properties.Settings.Default.ipScanRange.ToString();
-            radio_overwrite_checked.IsChecked = Properties.Settings.Default.overwriteIP;
-            radio_overwrite_unchecked.IsChecked = !(Properties.Settings.Default.overwriteIP);
+
+            checkBox_overwrite.IsChecked = Properties.Settings.Default.overwriteIP;
+            textbox_nmapcommand.Text = Properties.Settings.Default.nmapCommand + Properties.Settings.Default.ipToScan;
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
@@ -41,16 +44,8 @@ namespace SunScan.Pages
 
         private void button_saveSettings_Click(object sender, RoutedEventArgs e)
         {
-            bool? test = radio_overwrite_checked.IsChecked;
             int scanRange = 0;
-            if (!test.HasValue) //check for a value
-            {
-                // Assume that IsInitialized
-                // returns either true or false.
-                test = IsInitialized;
-            }
 
-            Properties.Settings.Default.overwriteIP = ((bool)test); //This is what determines if we are going to use a custom ip address
             Properties.Settings.Default.ipToOverwrite = overwriteIPBox.Text.ToString(); //This is the custom IP address
 
             scanRange = int.Parse(ipRangeBox.Text);
@@ -58,29 +53,38 @@ namespace SunScan.Pages
             Properties.Settings.Default.ipScanRange = scanRange; //This is the +/- range specified in the text box
             Properties.Settings.Default.Save();
 
-            //To get these values on a different page, call Properties.Settings.Default.(whatever it is above that you need). It will return the value saved above.
-
-            if(scanRange > 0)
+            if(scanRange > 0 && !(Properties.Settings.Default.overwriteIP))
             {
                 ChangeIPRange();
             }
 
-
             //now for the completely overriting the ip scan range
 
             //check to see if IP can be overwritten
-            string defaultNMAPCommand = "nmap - p 135 - oX - ";
+            string defaultNMAPCommand = Properties.Settings.Default.nmapCommand;
 
             if (Properties.Settings.Default.overwriteIP)
-            { 
+            {
+                SunScan.Properties.Settings.Default.ipToScan = Properties.Settings.Default.ipToOverwrite;
+                SunScan.Properties.Settings.Default.Save();
+
                 NMAPScan.WriteFile(defaultNMAPCommand + Properties.Settings.Default.ipToOverwrite, "test1.txt");
+                
             }
+
+            textbox_nmapcommand.Text = Properties.Settings.Default.nmapCommand + Properties.Settings.Default.ipToScan;
+
+            textbox_settings_saved.Visibility = Visibility.Visible;
+            
         }
 
         private void ChangeIPRange()
         {
+            NMAPScan.GetIPConfig(nmapCommandFile);
+
             string line = "";
-            using (StreamReader rdr = new StreamReader("test1.txt"))
+
+            using (StreamReader rdr = new StreamReader(nmapCommandFile))
             {
                 line = rdr.ReadLine();
             }
@@ -93,9 +97,11 @@ namespace SunScan.Pages
 
             int defaultIP = 0;
 
-            string defaultNMAPCommand = "nmap - p 135 - oX - ";
+            string defaultNMAPCommand = Properties.Settings.Default.nmapCommand;
 
             string newIPAddressRange = defaultNMAPCommand;
+
+            string ipRangeNoNmap = "";
 
             for (int i = 0; i < ipParts.Length; ++i)
             {
@@ -127,16 +133,20 @@ namespace SunScan.Pages
                     ipParts[i] = newRange;
                 }
 
+                ipRangeNoNmap += ipParts[i];
                 newIPAddressRange += ipParts[i];
-
 
                 if (i < ipParts.Length - 1)
                 {
+                    ipRangeNoNmap += ".";
                     newIPAddressRange += ".";
                 }
             }
 
             //NMAPScan.WriteFile(Properties.Settings.Default.overwriteIP + " " + Properties.Settings.Default.ipToOverwrite +  " " + newIPAddressRange, "testBoolean.txt");
+
+            SunScan.Properties.Settings.Default.ipToScan = ipRangeNoNmap;
+            SunScan.Properties.Settings.Default.Save();
 
             NMAPScan.WriteFile(newIPAddressRange, "test1.txt");
         }
@@ -146,6 +156,16 @@ namespace SunScan.Pages
             //Put in code for clearing lists here
             Properties.Settings.Default.favoritesList.Clear();
             Properties.Settings.Default.Save();
+        }
+
+        private void checkBox_overwrite_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.overwriteIP = true;
+        }
+
+        private void checkBox_overwrite_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.overwriteIP = false;
         }
     }
 }
