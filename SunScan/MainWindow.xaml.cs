@@ -30,21 +30,30 @@ namespace SunScan
 
         private void button_home_Click(object sender, RoutedEventArgs e)
         {
-            Uri homePage = new Uri("Pages/HomePage.xaml", UriKind.Relative);
-            frame_pages.Source = homePage;
+            if(Properties.Settings.Default.windowNotLocked)
+            {
+                Uri homePage = new Uri("Pages/HomePage.xaml", UriKind.Relative);
+                frame_pages.Source = homePage;
+            }
         }
 
         private void button_favorites_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).freshScan = false;
-            Uri homePage = new Uri("Pages/FavoritesPage.xaml", UriKind.Relative);
-            frame_pages.Source = homePage;
+            if (Properties.Settings.Default.windowNotLocked)
+            {
+                (App.Current as App).freshScan = false;
+                Uri homePage = new Uri("Pages/FavoritesPage.xaml", UriKind.Relative);
+                frame_pages.Source = homePage;
+            }
         }
 
         private void button_settings_Click(object sender, RoutedEventArgs e)
         {
-            Uri settingsPage = new Uri("Pages/SettingsPage.xaml", UriKind.Relative);
-            frame_pages.Source = settingsPage;
+            if (Properties.Settings.Default.windowNotLocked)
+            {
+                Uri settingsPage = new Uri("Pages/SettingsPage.xaml", UriKind.Relative);
+                frame_pages.Source = settingsPage;
+            }
         }
     }
 }

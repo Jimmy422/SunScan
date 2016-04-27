@@ -48,6 +48,9 @@ namespace SunScan.Pages
             scanBackgroundWorker.WorkerReportsProgress = true;
             scanBackgroundWorker.DoWork += ScanBackgroundWorker_DoWork;
             scanBackgroundWorker.RunWorkerCompleted += ScanBackgroundWorker_RunWorkerCompleted;
+
+            Properties.Settings.Default.windowNotLocked = true;
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -221,30 +224,42 @@ namespace SunScan.Pages
         /// <param name="e"></param>
         private void button_openScan_Click(object sender, RoutedEventArgs e)
         {
-            openFile();
-
-            if (xmlReader != null)
+            if(Properties.Settings.Default.windowNotLocked)
             {
-                if(scanXML(xmlReader))
-                {
-                    (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
-                    (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
+                openFile();
 
-                    ResultsPage scanResultsPage = new ResultsPage();
-                    NavigationService.Navigate(scanResultsPage);
+                if (xmlReader != null)
+                {
+                    if (scanXML(xmlReader))
+                    {
+                        (App.Current as App).deviceList = deviceScanResults; //Get the list of devices ready to pass to the next page
+                        (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
+
+                        Properties.Settings.Default.windowNotLocked = true;
+                        Properties.Settings.Default.Save();
+
+                        ResultsPage scanResultsPage = new ResultsPage();
+                        NavigationService.Navigate(scanResultsPage);
+                    }
+                    else
+                    {
+                        //Display "No devices found in this scan."
+                        setupProgressSection("Error Processing Scan", "Something went wrong reading the scan file. Try again.", false, 0);
+                        scanProgressStackPanel.Visibility = Visibility.Collapsed;
+
+                        Properties.Settings.Default.windowNotLocked = true;
+                        Properties.Settings.Default.Save();
+                    }
                 }
                 else
                 {
-                    //Display "No devices found in this scan."
+                    //Display error message that the file was not opened successfully.
                     setupProgressSection("Error Processing Scan", "Something went wrong reading the scan file. Try again.", false, 0);
                     scanProgressStackPanel.Visibility = Visibility.Collapsed;
+
+                    Properties.Settings.Default.windowNotLocked = true;
+                    Properties.Settings.Default.Save();
                 }
-            }
-            else
-            {
-                //Display error message that the file was not opened successfully.
-                setupProgressSection("Error Processing Scan", "Something went wrong reading the scan file. Try again.", false, 0);
-                scanProgressStackPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -269,6 +284,9 @@ namespace SunScan.Pages
                     Properties.Settings.Default.lastScanRunTime = "Last Scan Ran: " + DateTime.Now.Date.ToLongDateString() + " at " + DateTime.Now.ToShortTimeString().ToString();
                     Properties.Settings.Default.Save();
 
+                    Properties.Settings.Default.windowNotLocked = true;
+                    Properties.Settings.Default.Save();
+
                     ResultsPage scanResultsPage = new ResultsPage();
                     NavigationService.Navigate(scanResultsPage);
                 }
@@ -276,44 +294,54 @@ namespace SunScan.Pages
                 {
                     //Display "No devices found in this scan."
                     setupProgressSection("No Devices Found", "Either your network is empty, or the scan failed. Try again.", false, 0);
+                    Properties.Settings.Default.windowNotLocked = true;
+                    Properties.Settings.Default.Save();
                 }
             }
             else
             {
                 //Display error message that the file was not opened successfully.
                 setupProgressSection("Error Processing Scan", "Something went wrong reading the scan result. Try again.", false, 0);
+                Properties.Settings.Default.windowNotLocked = true;
+                Properties.Settings.Default.Save();
             }
         }
 
         private void button_newScan_Click(object sender, RoutedEventArgs e)
         {
-            if ((!Properties.Settings.Default.overwriteIP) && (Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
+            if (Properties.Settings.Default.windowNotLocked)
             {
-                NMAPScan.GetIPConfig(nmapCommandFile);
-            }
+                Properties.Settings.Default.windowNotLocked = false;
+                Properties.Settings.Default.Save();
 
-            setupProgressSection("Scanning " + Properties.Settings.Default.ipToScan, "Please be patient while we scan for devices. This may take a while.", true, 0);
-            scanBackgroundWorker.RunWorkerAsync();
+                if ((!Properties.Settings.Default.overwriteIP) && (Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
+                {
+                    NMAPScan.GetIPConfig(nmapCommandFile);
+                }
+
+                setupProgressSection("Scanning " + Properties.Settings.Default.ipToScan, "Please be patient while we scan for devices. This may take a while.", true, 0);
+                scanBackgroundWorker.RunWorkerAsync();
+            }
         }
 
         private void button_favoriteDevices_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
+            if (Properties.Settings.Default.windowNotLocked)
+            {
+                (App.Current as App).freshScan = false; //This is not a new scan, don't show the save button
 
-            FavoritesPage favoritesResultsPage = new FavoritesPage();
-            NavigationService.Navigate(favoritesResultsPage);
+                FavoritesPage favoritesResultsPage = new FavoritesPage();
+                NavigationService.Navigate(favoritesResultsPage);
+            }
         }
 
         private void button_settings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsPage settingsPage = new SettingsPage();
-            NavigationService.Navigate(settingsPage);
-        }
-
-        private void button_stop_scan_Click(object sender, RoutedEventArgs e)
-        {
-            scanBackgroundWorker.CancelAsync();
-            setupProgressSection("Scan Cancelled", "The scan was cancelled by the user.", false, 0);
+            if (Properties.Settings.Default.windowNotLocked)
+            {
+                SettingsPage settingsPage = new SettingsPage();
+                NavigationService.Navigate(settingsPage);
+            }
         }
     }
 }

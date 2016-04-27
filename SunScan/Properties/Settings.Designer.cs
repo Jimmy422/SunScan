@@ -105,5 +105,17 @@ namespace SunScan.Properties {
                 this["nmapCommand"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool windowNotLocked {
+            get {
+                return ((bool)(this["windowNotLocked"]));
+            }
+            set {
+                this["windowNotLocked"] = value;
+            }
+        }
     }
 }
