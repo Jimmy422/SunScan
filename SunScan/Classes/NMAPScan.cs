@@ -143,7 +143,8 @@ public class NMAPScan
 
                 int highChange = intIp + change;
 
-                ips[i] = lowChange + "-" + highChange;
+                //ips[i] = lowChange + "-" + highChange;
+                //ips[i] = masks[i];
             }
 
             if (masks[i] == "0")

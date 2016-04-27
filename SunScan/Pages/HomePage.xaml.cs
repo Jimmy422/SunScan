@@ -287,7 +287,7 @@ namespace SunScan.Pages
 
         private void button_newScan_Click(object sender, RoutedEventArgs e)
         {
-            if ((!Properties.Settings.Default.overwriteIP && Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
+            if ((!Properties.Settings.Default.overwriteIP) && (Properties.Settings.Default.ipScanRange == 0) || !File.Exists(nmapCommandFile))
             {
                 NMAPScan.GetIPConfig(nmapCommandFile);
             }
@@ -308,6 +308,12 @@ namespace SunScan.Pages
         {
             SettingsPage settingsPage = new SettingsPage();
             NavigationService.Navigate(settingsPage);
+        }
+
+        private void button_stop_scan_Click(object sender, RoutedEventArgs e)
+        {
+            scanBackgroundWorker.CancelAsync();
+            setupProgressSection("Scan Cancelled", "The scan was cancelled by the user.", false, 0);
         }
     }
 }
