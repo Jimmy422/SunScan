@@ -80,95 +80,55 @@ namespace SunScan.Pages
 
         private void ChangeIPRange()
         {
-            NMAPScan.GetIPConfig(nmapCommandFile);
-
-            string line = "";
-
-            using (StreamReader rdr = new StreamReader(nmapCommandFile))
-            {
-                line = rdr.ReadLine();
-            }
-
-            string[] nmapCommandParts = line.Split(' ');
-
-            line = nmapCommandParts[nmapCommandParts.Length - 1];
-
-            string[] ipParts = line.Split('.');
-
-            int defaultIP = 0;
 
             string defaultNMAPCommand = Properties.Settings.Default.nmapCommand;
 
-            string newIPAddressRange = defaultNMAPCommand;
-
             string ipRangeNoNmap = "";
 
-            for (int i = 0; i < ipParts.Length-1; ++i)
+            int range = Properties.Settings.Default.ipScanRange;
+
+            string ip = NMAPScan.GetIPAddress();
+
+            string[] addrParts = ip.Split('.');
+ 
+            addrParts[addrParts.Length - 1] = "*";
+
+            string rangeToChange = addrParts[addrParts.Length - 2];
+
+            int ipconfigResult = int.Parse(rangeToChange);
+
+            int low = ipconfigResult - range;
+            int high = ipconfigResult + range;
+
+            if (low < 0)
+                low = 0;
+
+            string newIPRange = "";
+
+            if (range == 0)
+                newIPRange = ipconfigResult + "";
+            else
+                newIPRange = low + "-" + high;
+
+            for(int i=0; i<addrParts.Length; i++)
             {
 
-                if (ipParts[i+1].Contains("*"))
-                {
-                    int range = Properties.Settings.Default.ipScanRange;
+                if(i == addrParts.Length-2)
+                    ipRangeNoNmap += newIPRange;
+                
+                else
+                    ipRangeNoNmap += addrParts[i];
 
-                    int high = 0;
-                    int low = 0;
-
-                    int difference = 0;
-
-                    if (ipParts[i].Contains("-"))
-                    {
-                        string[] rangeParts = ipParts[i].Split('-');
-
-                        //NMAPScan.WriteFile(rangeParts.Length + " " + rangeParts[0] + " " + rangeParts[1], "rangeparts.txt");
-
-                        low = int.Parse(rangeParts[0]);
-                        high = int.Parse(rangeParts[1]);
-
-                        difference = (high - low) / 2;
-                    }
-                    else
-                    {
-                        difference = int.Parse(ipParts[i]);
-
-                    }
-
-                    defaultIP = low + difference;
-
-                    low = defaultIP - range;
-
-                    if (low < 0)
-                        low = 0;
-
-                    high = defaultIP + range;
-
-                    string newRange = low + "-" + high;
-
-                    if (range == 0)
-                    {
-                        newRange = ( (high + low)/2 ) + "";
-                    }
-
-                    ipParts[i] = newRange;
-                }
-
-                ipRangeNoNmap += ipParts[i];
-                newIPAddressRange += ipParts[i];
-
-                if (i < ipParts.Length - 1)
-                {
+                if (i < addrParts.Length - 1)
                     ipRangeNoNmap += ".";
-                    newIPAddressRange += ".";
-                }
-
             }
-            ipRangeNoNmap += "*";
-            newIPAddressRange += "*";
+
             //NMAPScan.WriteFile(Properties.Settings.Default.overwriteIP + " " + Properties.Settings.Default.ipToOverwrite +  " " + newIPAddressRange, "testBoolean.txt");
 
             SunScan.Properties.Settings.Default.ipToScan = ipRangeNoNmap;
             SunScan.Properties.Settings.Default.Save();
 
-            NMAPScan.WriteFile(newIPAddressRange, "test1.txt");
+            NMAPScan.WriteFile(defaultNMAPCommand + ipRangeNoNmap, "test1.txt");
         }
 
         private void button_clearFavorites_Click(object sender, RoutedEventArgs e)

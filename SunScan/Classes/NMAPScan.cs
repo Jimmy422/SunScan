@@ -193,5 +193,31 @@ public class NMAPScan
         }
 
     }
+
+    public static string GetIPAddress()
+    {
+        string IPv4 = "";
+        try
+        {
+            using (System.IO.StreamReader rd = new System.IO.StreamReader("ipconf.txt"))
+            {
+                string line = "";
+
+                while ((line = rd.ReadLine()) != null)
+                {
+                    if (line.Contains("IPv4 Address"))
+                    {
+                        string[] lines = line.Split(' ');
+                        IPv4 = lines[lines.Length - 1];
+                    }
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            WriteFile(e.StackTrace, "ERRORexception.txt");
+        }
+        return IPv4;
+    }
 }
 

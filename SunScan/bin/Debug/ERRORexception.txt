@@ -4,6 +4,6 @@
    at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
    at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
    at System.IO.StreamWriter..ctor(String path)
-   at NMAPScan.WriteFile(String line, String fileName) in C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\Classes\NMAPScan.cs:line 76
-   at NMAPScan.runCMD(String command, String outputFileName) in C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\Classes\NMAPScan.cs:line 67
-   at NMAPScan.ReadCommands(String fileName, String outputFile) in C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\Classes\NMAPScan.cs:line 36
+   at NMAPScan.WriteFile(String line, String fileName) in C:\Users\guru\Desktop\SunScan-master\SunScan\Classes\NMAPScan.cs:line 76
+   at NMAPScan.runCMD(String command, String outputFileName) in C:\Users\guru\Desktop\SunScan-master\SunScan\Classes\NMAPScan.cs:line 67
+   at NMAPScan.ReadCommands(String fileName, String outputFile) in C:\Users\guru\Desktop\SunScan-master\SunScan\Classes\NMAPScan.cs:line 36
