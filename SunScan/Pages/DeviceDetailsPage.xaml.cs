@@ -39,6 +39,11 @@ namespace SunScan.Pages
             if (!(App.Current as App).freshScan)
             {
                 button_manage.Visibility = Visibility.Collapsed;
+                button_manage_wmi.Visibility = Visibility.Collapsed;
+            }
+            if (selectedDevice.wmiManageable == false)
+            {
+                button_manage_wmi.Visibility = Visibility.Collapsed;
             }
         }
 
