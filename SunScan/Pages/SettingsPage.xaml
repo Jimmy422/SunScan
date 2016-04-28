@@ -64,9 +64,9 @@
                 <StackPanel>
                     <TextBlock Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="About Sunscan 1.0.0" />
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 0 24" Foreground="White" FontSize="18">Designed for SunView Inc. for University of South Florida Senior Project - Spring 2016</TextBlock>
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">UI, WMI Querying, and NMAP Scan XML Parsing by James Keith</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">UI, WMI Querying/Login, and NMAP Scan Parsing by James Keith</TextBlock>
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">IP Retreval and Setup by Roger Milton</TextBlock>
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">Management Research and Various WMI Code by Seth Kenney</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">Network Technique, Management Research and WMI Querying by Seth Kenney</TextBlock>
                 </StackPanel>
             </StackPanel>
             
