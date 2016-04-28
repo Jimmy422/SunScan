@@ -46,7 +46,7 @@ namespace SunScan.Pages
 
         public void calculateFavorites()
         {
-            if()
+            //if()
             {
                 List<string> favIPList = Properties.Settings.Default.favoriteIP;
                 List<string> favMACList = Properties.Settings.Default.favoriteMAC;

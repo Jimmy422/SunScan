@@ -38,12 +38,24 @@
                     <TextBlock VerticalAlignment="Center" x:Name="textBlock_wmiAvailable" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Operating System:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_opsys" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Manufacturer:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_manufacturer" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Model:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_devmodel" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">PC Name:</TextBlock>
                     <TextBlock VerticalAlignment="Center" x:Name="textBlock_pcname" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">User Active:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_currentuser" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Operating System:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_opsys" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
                 </StackPanel>
             </StackPanel>
             

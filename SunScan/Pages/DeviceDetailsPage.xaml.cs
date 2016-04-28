@@ -24,31 +24,32 @@ namespace SunScan.Pages
     public partial class DeviceDetailsPage : Page
     {
         aDevice selectedDevice = (App.Current as App).selectedDevice;
-        /*
+        
         ConnectionOptions options =
                  new ConnectionOptions();
 
-        ManagementObjectSearcher managementSearch;*/
+        ManagementObjectSearcher managementSearch;
+        ManagementObjectSearcher managementSearch2;
 
         public DeviceDetailsPage()
         {
             InitializeComponent();
 
-            /*
-            options.Username = "James";
-            options.Password = "";
-            //options.Authority = "ntdlmdomain:WORKGROUP";
+            
+            options.Username = "abluehawk@msn.com";
+            options.Password = "Hotmail4065";
+            options.Authority = "ntlmdomain:WORKGROUP";
 
-            //string s = "\\\\" + selectedDevice.deviceIP + "\\root\\cimv2";
+            string s = "\\\\" + selectedDevice.deviceIP + "\\root\\cimv2";
 
             ManagementScope scope =
                new ManagementScope(s, options);
              scope.Connect();
 
-            //           managementSearch = new ManagementObjectSearcher(s, "SELECT * FROM  Win32_ComputerSystem"); //Where it says "\\\\localhost\\root\\...", replace this with an IP address or computer name
-            //           ManagementObjectCollection queryCollection;
+                       managementSearch = new ManagementObjectSearcher(s, "SELECT * FROM  Win32_ComputerSystem"); //Where it says "\\\\localhost\\root\\...", replace this with an IP address or computer name
+                       ManagementObjectCollection queryCollection;
 
-            */
+            
 
             textBlock_ipAddress.Text = selectedDevice.deviceIP;
             textBlock_macAddress.Text = selectedDevice.deviceMAC;
@@ -57,14 +58,31 @@ namespace SunScan.Pages
 
             if(selectedDevice.wmiManageable)
             {
-                //queryCollection = managementSearch.Get();
+                queryCollection = managementSearch.Get();
 
-                /*foreach (ManagementObject m in queryCollection)
+                foreach (ManagementObject m in queryCollection)
                 {
                     // Display the remote computer information
-                    textBlock_opsys.Text = m["Manufacturer"].ToString();
+                    textBlock_manufacturer.Text = m["Manufacturer"].ToString();
                     textBlock_pcname.Text = m["Name"].ToString();
-                }*/
+                    textBlock_devmodel.Text = m["Model"].ToString();
+                    textBlock_currentuser.Text = m["UserName"].ToString();
+                }
+            }
+
+            managementSearch2 = new ManagementObjectSearcher(s, "SELECT * FROM  Win32_OperatingSystem"); //Where it says "\\\\localhost\\root\\...", replace this with an IP address or computer name
+            ManagementObjectCollection queryCollection2;
+
+            if (selectedDevice.wmiManageable)
+            {
+                queryCollection2 = managementSearch2.Get();
+
+                foreach (ManagementObject m in queryCollection2)
+                {
+                    // Display the remote computer information
+                    textBlock_opsys.Text = m["Caption"].ToString();
+                   
+                }
             }
 
             Color wmiColor = (Color)ColorConverter.ConvertFromString(selectedDevice.wmiManageableColor);

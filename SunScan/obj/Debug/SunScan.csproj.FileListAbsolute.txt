@@ -228,3 +228,28 @@ C:\Users\James K\Desktop\SunScan\SunScan\obj\Debug\Pages\ResultsPage.baml
 C:\Users\James K\Desktop\SunScan\SunScan\obj\Debug\SunScan.g.resources
 C:\Users\James K\Desktop\SunScan\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 C:\Users\James K\Desktop\SunScan\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\bin\Debug\SunScan.exe.config
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.exe
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.pdb
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.csprojResolveAssemblyReference.cache
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\MainWindow.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\SettingsPage.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\HomePage.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\FavoritesPage.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\App.g.cs
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.cache
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan_MarkupCompile.lref
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\bin\Debug\SunScan.exe
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\bin\Debug\SunScan.pdb
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\App.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\MainWindow.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\SettingsPage.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\DeviceDetailsPage.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\HomePage.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\FavoritesPage.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\Pages\ResultsPage.baml
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
+C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache

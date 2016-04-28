@@ -1,85 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
-<?xml-stylesheet href="file:///C:/Users/James K/Desktop/SunScan/SunScan/bin/Debug/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.01 scan initiated Wed Apr 27 16:14:24 2016 as: nmap -p 135 -oX - 10.226.4.* -->
-<nmaprun scanner="nmap" args="nmap -p 135 -oX - 10.226.4.*" start="1461788064" startstr="Wed Apr 27 16:14:24 2016" version="7.01" xmloutputversion="1.04">
+<?xml-stylesheet href="file:///C:/Users/ablue.LAPTOP-PC02EJV8/OneDrive/Documents/SunScan-master/SunScan/bin/Debug/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.01 scan initiated Wed Apr 27 23:24:29 2016 as: nmap -p 135 -oX - 192.168.1.* -->
+<nmaprun scanner="nmap" args="nmap -p 135 -oX - 192.168.1.*" start="1461813869" startstr="Wed Apr 27 23:24:29 2016" version="7.01" xmloutputversion="1.04">
 <scaninfo type="syn" protocol="tcp" numservices="1" services="135"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.4" addrtype="ipv4"/>
-<address addr="20:C9:D0:C0:5B:63" addrtype="mac" vendor="Apple"/>
+<host starttime="1461813869" endtime="1461813873"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.1" addrtype="ipv4"/>
+<address addr="F8:E4:FB:12:7E:A0" addrtype="mac" vendor="Actiontec Electronics"/>
 <hostnames>
-<hostname name="USF-Gold-Wifi-226-4-4.laptops.usf.edu" type="PTR"/>
+<hostname name="Wireless_Broadband_Router.home" type="PTR"/>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="9125" rttvar="18000" to="100000"/>
+<times srtt="1750" rttvar="5250" to="100000"/>
 </host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.6" addrtype="ipv4"/>
-<address addr="80:00:6E:4F:81:B8" addrtype="mac" vendor="Apple"/>
+<host starttime="1461813869" endtime="1461813873"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.3" addrtype="ipv4"/>
+<address addr="68:94:23:96:C1:2B" addrtype="mac" vendor="Hon Hai Precision Ind."/>
 <hostnames>
-<hostname name="USF-Gold-Wifi-226-4-6.laptops.usf.edu" type="PTR"/>
+<hostname name="Winning.home" type="PTR"/>
 </hostnames>
-<ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
+<ports><port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="2375" rttvar="4500" to="100000"/>
+<times srtt="88500" rttvar="98000" to="480500"/>
 </host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.8" addrtype="ipv4"/>
-<address addr="A4:E4:B8:67:7B:05" addrtype="mac" vendor="BlackBerry RTS"/>
+<host starttime="1461813869" endtime="1461813873"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.5" addrtype="ipv4"/>
+<address addr="C0:33:5E:AB:4C:1F" addrtype="mac" vendor="Microsoft"/>
 <hostnames>
-<hostname name="USF-Gold-Wifi-226-4-8.laptops.usf.edu" type="PTR"/>
-</hostnames>
-<ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
-</ports>
-<times srtt="10250" rttvar="20250" to="100000"/>
-</host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.10" addrtype="ipv4"/>
-<address addr="A8:66:7F:A7:37:72" addrtype="mac" vendor="Apple"/>
-<hostnames>
-<hostname name="USF-Gold-Wifi-226-4-10.laptops.usf.edu" type="PTR"/>
+<hostname name="XboxOne.home" type="PTR"/>
 </hostnames>
 <ports><port protocol="tcp" portid="135"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="2000" rttvar="5000" to="100000"/>
+<times srtt="35500" rttvar="29750" to="154500"/>
 </host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.12" addrtype="ipv4"/>
-<address addr="08:74:02:3B:84:6D" addrtype="mac" vendor="Apple"/>
+<host starttime="0" endtime="0"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.1.6" addrtype="ipv4"/>
 <hostnames>
-<hostname name="USF-Gold-Wifi-226-4-12.laptops.usf.edu" type="PTR"/>
+<hostname name="LAPTOP-PC02EJV8.home" type="PTR"/>
 </hostnames>
-<ports><port protocol="tcp" portid="135"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
+<ports><port protocol="tcp" portid="135"><state state="unknown" reason="no-response" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
 </ports>
-<times srtt="2000" rttvar="5000" to="100000"/>
 </host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.24" addrtype="ipv4"/>
-<address addr="CC:20:E8:09:54:A4" addrtype="mac" vendor="Apple"/>
-<hostnames>
-<hostname name="USF-Gold-Wifi-226-4-24.laptops.usf.edu" type="PTR"/>
-</hostnames>
-<ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
-</ports>
-<times srtt="9250" rttvar="14250" to="100000"/>
-</host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.26" addrtype="ipv4"/>
-<address addr="98:E0:D9:AA:4D:1D" addrtype="mac" vendor="Apple"/>
-<hostnames>
-<hostname name="USF-Gold-Wifi-226-4-26.laptops.usf.edu" type="PTR"/>
-</hostnames>
-<ports><port protocol="tcp" portid="135"><state state="closed" reason="reset" reason_ttl="64"/><service name="msrpc" method="table" conf="3"/></port>
-</ports>
-<times srtt="13125" rttvar="22000" to="101125"/>
-</host>
-<host starttime="1461788065" endtime="1461788066"><status state="up" reason="arp-response" reason_ttl="0"/>
-<address addr="10.226.4.29" addrtype="ipv4"/>
-<address addr="4C:34:88:B3:32:E2" addrtype="mac" vendor="Intel Corporate"/>
-<hostnames>
-<hostname name="USF-Gold-Wifi-226-4-29.laptops.usf.edu" type="PTR"/>
-</hostnames>
+<runstats><finished time="1461813873" timestr="Wed Apr 27 23:24:33 2016" elapsed="3.72" summary="Nmap done at Wed Apr 27 23:24:33 2016; 256 IP addresses (4 hosts up) scanned in 3.72 seconds" exit="success"/><hosts up="4" down="252" total="256"/>
+</runstats>
+</nmaprun>
 

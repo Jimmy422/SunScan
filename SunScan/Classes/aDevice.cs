@@ -58,7 +58,7 @@ namespace SunScan.Classes
 
             if(manageable)
             {
-                _wmiManageableText = "available";
+                _wmiManageableText = "Available";
                 _wmiManageableColor = "#FFea8535";
             }
             else
