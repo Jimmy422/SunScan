@@ -18,12 +18,28 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button x:Name="button_back" Grid.ColumnSpan="2" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click" Style="{DynamicResource TransparentBackgroundButton}" FontFamily="Segoe MDL2 Assets" />
-        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Device Title" />
+        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Device Title" Height="70" />
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Style="{DynamicResource ScanInfoBox}" >
             <StackPanel>
                 <StackPanel Margin="0 0 0 24" Orientation="Horizontal">
-                    <Button Margin="0 0 12 0" x:Name="button_manage" Content="Manage at Access Point (If Available)" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource Button_Generic}" Click="button_manage_Click"/>
-                    <Button x:Name="button_favorites" Content="Add To Favorites" Style="{DynamicResource Button_Generic}" Click="button_favorites_Click"/>
+                    <Button Margin="0 0 12 0" x:Name="button_manage" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource Button_Generic}" Click="button_manage_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE774;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                            <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Manage at Access Point</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0 0 12 0" x:Name="button_manage_wmi" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource Button_Generic}" Click="button_manage_wmi_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8CB;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                            <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Get More Information With WMI</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="button_favorites" Style="{DynamicResource Button_Generic}" Click="button_favorites_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE734;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
+                            <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Add to Favorites</TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 16" FontSize="18">Device IP Address:</TextBlock>

@@ -161,5 +161,53 @@ namespace SunScan.Properties {
                 this["favoriteWMI"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string wmiIPScan {
+            get {
+                return ((string)(this["wmiIPScan"]));
+            }
+            set {
+                this["wmiIPScan"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string defaultWMIUsername {
+            get {
+                return ((string)(this["defaultWMIUsername"]));
+            }
+            set {
+                this["defaultWMIUsername"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string defaultWMIPassword {
+            get {
+                return ((string)(this["defaultWMIPassword"]));
+            }
+            set {
+                this["defaultWMIPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string defaultWMIDomain {
+            get {
+                return ((string)(this["defaultWMIDomain"]));
+            }
+            set {
+                this["defaultWMIDomain"] = value;
+            }
+        }
     }
 }

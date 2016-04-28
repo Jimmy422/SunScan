@@ -58,7 +58,7 @@
                     <DataTemplate>
                         <Grid>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="{Binding wmiManageableColor}" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
+                                <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="White" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock FontSize="18" Text="{Binding deviceName}" />
                                     <StackPanel Orientation="Horizontal">
@@ -70,8 +70,7 @@
                                         <TextBlock FontSize="14" Text="{Binding deviceMAC}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontSize="14" Foreground="{Binding wmiManageableColor}" Text="WMI Management " />
-                                        <TextBlock FontSize="14" Foreground="{Binding wmiManageableColor}" Text="{Binding wmiManageableText}" />
+                                        <TextBlock FontSize="14" Foreground="White" Text="WMI Management: Unknown" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>

@@ -253,3 +253,5 @@ C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Deb
 C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.g.resources
 C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.Properties.Resources.resources
 C:\Users\ablue.LAPTOP-PC02EJV8\OneDrive\Documents\SunScan-master\SunScan\obj\Debug\SunScan.csproj.GenerateResource.Cache
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\WMILoginWindow.g.cs
+C:\Users\James\Documents\Visual Studio 2015\Projects\SunScan\SunScan\obj\Debug\WMILoginWindow.baml

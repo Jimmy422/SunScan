@@ -35,6 +35,10 @@ namespace SunScan.Pages
 
             checkBox_overwrite.IsChecked = Properties.Settings.Default.overwriteIP;
             textbox_nmapcommand.Text = Properties.Settings.Default.nmapCommand + Properties.Settings.Default.ipToScan;
+
+            wmiUsername.Text = Properties.Settings.Default.defaultWMIUsername;
+            wmiPassword.Password = Properties.Settings.Default.defaultWMIPassword;
+            wmiDomain.Text = Properties.Settings.Default.defaultWMIDomain;
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
@@ -51,6 +55,11 @@ namespace SunScan.Pages
             scanRange = int.Parse(ipRangeBox.Text);
 
             Properties.Settings.Default.ipScanRange = scanRange; //This is the +/- range specified in the text box
+
+            Properties.Settings.Default.defaultWMIUsername = wmiUsername.Text;
+            Properties.Settings.Default.defaultWMIPassword = wmiPassword.Password;
+            Properties.Settings.Default.defaultWMIDomain = wmiDomain.Text;
+
             Properties.Settings.Default.Save();
 
             if(!(Properties.Settings.Default.overwriteIP))
@@ -134,7 +143,28 @@ namespace SunScan.Pages
         private void button_clearFavorites_Click(object sender, RoutedEventArgs e)
         {
             //Put in code for clearing lists here
+            if(Properties.Settings.Default.favoritesList == null)
+            {
+                Properties.Settings.Default.favoritesList = new List<aDevice>();
+            }
+            if (Properties.Settings.Default.favoriteIP == null)
+            {
+                Properties.Settings.Default.favoriteIP = new List<string>();
+            }
+            if (Properties.Settings.Default.favoriteMAC == null)
+            {
+                Properties.Settings.Default.favoriteMAC = new List<string>();
+            }
+            if (Properties.Settings.Default.favoriteManufacturer == null)
+            {
+                Properties.Settings.Default.favoriteManufacturer = new List<string>();
+            }
+
             Properties.Settings.Default.favoritesList.Clear();
+            Properties.Settings.Default.favoriteIP.Clear();
+            Properties.Settings.Default.favoriteMAC.Clear();
+            Properties.Settings.Default.favoriteManufacturer.Clear();
+
             Properties.Settings.Default.Save();
         }
 

@@ -27,7 +27,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address Range (+/-):</TextBlock>
-                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="ipRangeBox" Width="25" Height="25" />
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="ipRangeBox" Width="30" Height="25" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 0" Foreground="White" FontSize="18">Overwrite Scan IP Address:</TextBlock>
@@ -35,7 +35,16 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address To Overwrite:</TextBlock>
-                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="25" />
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="30" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 36 0" FontSize="18">Default WMI Credentials:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 8 0" FontSize="18">Username:</TextBlock>
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" Margin="0 0 16 0" x:Name="wmiUsername" Width="100" Height="30" />
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 8 0" FontSize="18">Password:</TextBlock>
+                    <PasswordBox Style="{DynamicResource Passwordbox_search}" VerticalAlignment="Center" Margin="0 0 16 0" x:Name="wmiPassword" Width="100" Height="30" />
+                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 8 0" FontSize="18">Domain:</TextBlock>
+                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="wmiDomain" Width="100" Height="30" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <Button Style="{DynamicResource Button_Generic}" Margin="0 0 16 0" x:Name="button_saveSettings" Click="button_saveSettings_Click">
@@ -53,12 +62,11 @@
                     <TextBlock Visibility="Collapsed" x:Name="textbox_settings_saved" Foreground="White" FontSize="18" VerticalAlignment="Center">Settings Saved</TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="About" />
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 0 12" Foreground="White" FontSize="18">SunScan 1.0.0</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="About Sunscan 1.0.0" />
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 0 24" Foreground="White" FontSize="18">Designed for SunView Inc. for University of South Florida Senior Project - Spring 2016</TextBlock>
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">UI and NMAP Scan XML Parsing by James Keith</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">UI, WMI Querying, and NMAP Scan XML Parsing by James Keith</TextBlock>
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">IP Retreval and Setup by Roger Milton</TextBlock>
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">Management Research and Various Code by Seth Kenney</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 12" Foreground="White" FontSize="18">Management Research and Various WMI Code by Seth Kenney</TextBlock>
                 </StackPanel>
             </StackPanel>
             

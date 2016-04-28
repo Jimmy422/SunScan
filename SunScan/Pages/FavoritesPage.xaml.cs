@@ -28,17 +28,23 @@ namespace SunScan.Pages
         List<aDevice> foundDevices;
         List<string> favIPList;
         List<string> favMACList;
-
+        List<string> favManuList;
 
         public FavoritesPage()
         {
             InitializeComponent();
+
+            favIPList = Properties.Settings.Default.favoriteIP;
+            favMACList = Properties.Settings.Default.favoriteMAC;
+            favManuList = Properties.Settings.Default.favoriteManufacturer;
+
+            foundDevices = new List<aDevice>();
+
             calculateFavorites();
 
-            foundDevices = Properties.Settings.Default.favoritesList;
-
             listBox_devices.ItemsSource = foundDevices;
-            if((App.Current as App).freshScan)
+
+            if ((App.Current as App).freshScan)
             {
                 button_saveScan.Visibility = Visibility.Visible;
             }
@@ -46,16 +52,15 @@ namespace SunScan.Pages
 
         public void calculateFavorites()
         {
-            //if()
+            if(favIPList != null)
             {
-                List<string> favIPList = Properties.Settings.Default.favoriteIP;
-                List<string> favMACList = Properties.Settings.Default.favoriteMAC;
-                List<string> favManuList = Properties.Settings.Default.favoriteManufacturer;
+                favIPList = Properties.Settings.Default.favoriteIP;
+                favMACList = Properties.Settings.Default.favoriteMAC;
+                favManuList = Properties.Settings.Default.favoriteManufacturer;
 
                 for (int i = 0; i < favIPList.Count; i++)
                 {
-                    aDevice newDevice = new aDevice(favManuList[i], favMACList[i], favIPList[i]);
-                    Properties.Settings.Default.favoritesList.Add(newDevice);
+                    foundDevices.Add(new aDevice(favManuList[i], favMACList[i], favIPList[i]));
                 }
             }
             

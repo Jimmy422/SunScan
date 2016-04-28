@@ -24,74 +24,31 @@ namespace SunScan.Pages
     public partial class DeviceDetailsPage : Page
     {
         aDevice selectedDevice = (App.Current as App).selectedDevice;
-        
-        ConnectionOptions options =
-                 new ConnectionOptions();
-
-        ManagementObjectSearcher managementSearch;
-        ManagementObjectSearcher managementSearch2;
 
         public DeviceDetailsPage()
         {
             InitializeComponent();
-
-            
-            options.Username = "abluehawk@msn.com";
-            options.Password = "Hotmail4065";
-            options.Authority = "ntlmdomain:WORKGROUP";
-
-            string s = "\\\\" + selectedDevice.deviceIP + "\\root\\cimv2";
-
-            ManagementScope scope =
-               new ManagementScope(s, options);
-             scope.Connect();
-
-                       managementSearch = new ManagementObjectSearcher(s, "SELECT * FROM  Win32_ComputerSystem"); //Where it says "\\\\localhost\\root\\...", replace this with an IP address or computer name
-                       ManagementObjectCollection queryCollection;
-
-            
 
             textBlock_ipAddress.Text = selectedDevice.deviceIP;
             textBlock_macAddress.Text = selectedDevice.deviceMAC;
             textBlock_deviceTitle.Text = selectedDevice.deviceName;
             textBlock_wmiAvailable.Text = selectedDevice.wmiManageableText;
 
-            if(selectedDevice.wmiManageable)
-            {
-                queryCollection = managementSearch.Get();
-
-                foreach (ManagementObject m in queryCollection)
-                {
-                    // Display the remote computer information
-                    textBlock_manufacturer.Text = m["Manufacturer"].ToString();
-                    textBlock_pcname.Text = m["Name"].ToString();
-                    textBlock_devmodel.Text = m["Model"].ToString();
-                    textBlock_currentuser.Text = m["UserName"].ToString();
-                }
-            }
-
-            managementSearch2 = new ManagementObjectSearcher(s, "SELECT * FROM  Win32_OperatingSystem"); //Where it says "\\\\localhost\\root\\...", replace this with an IP address or computer name
-            ManagementObjectCollection queryCollection2;
-
-            if (selectedDevice.wmiManageable)
-            {
-                queryCollection2 = managementSearch2.Get();
-
-                foreach (ManagementObject m in queryCollection2)
-                {
-                    // Display the remote computer information
-                    textBlock_opsys.Text = m["Caption"].ToString();
-                   
-                }
-            }
-
-            Color wmiColor = (Color)ColorConverter.ConvertFromString(selectedDevice.wmiManageableColor);
-            textBlock_wmiAvailable.Foreground = new SolidColorBrush(wmiColor);
+            refreshDeviceDetails();
 
             if (!(App.Current as App).freshScan)
             {
                 button_manage.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void refreshDeviceDetails()
+        {
+            textBlock_manufacturer.Text = selectedDevice.deviceManufacturer;
+            textBlock_opsys.Text = selectedDevice.deviceOS;
+            textBlock_pcname.Text = selectedDevice.devicePCName;
+            textBlock_devmodel.Text = selectedDevice.deviceModel;
+            textBlock_currentuser.Text = selectedDevice.deviceUser;
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
@@ -130,6 +87,23 @@ namespace SunScan.Pages
             Properties.Settings.Default.favoriteIP.Add(selectedDevice.deviceIP);
             Properties.Settings.Default.favoriteMAC.Add(selectedDevice.deviceMAC);
             Properties.Settings.Default.favoriteManufacturer.Add(selectedDevice.deviceName);
+            Properties.Settings.Default.Save();
+        }
+
+        private void button_manage_wmi_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.wmiIPScan = selectedDevice.deviceIP;
+            Properties.Settings.Default.Save();
+
+            WMILoginWindow loginWindow = new WMILoginWindow();
+
+            Nullable<bool> dialogResult = loginWindow.ShowDialog();
+
+            if((bool)dialogResult)
+            {
+                refreshDeviceDetails();
+                textBlock_deviceTitle.Text = selectedDevice.devicePCName;
+            }
         }
     }
 }
