@@ -76,6 +76,7 @@ namespace SunScan.Pages
                     aDevice =>
                         aDevice.deviceIP.Contains(textBox.Text.ToString()) ||
                         aDevice.deviceMAC.ToLower().Contains(textBox.Text.ToLower().ToString()) ||
+                        aDevice.devicePCName.ToLower().Contains(textBox.Text.ToLower().ToString()) ||
                         aDevice.deviceName.ToLower().Contains(textBox.Text.ToLower().ToString()));
 
                 listBox_devices.ItemsSource = query;
@@ -110,6 +111,12 @@ namespace SunScan.Pages
                     myStream.Close();
                 }
             }
+        }
+
+        private void RowDefinition_Loaded(object sender, RoutedEventArgs e)
+        {
+            listBox_devices.ItemsSource = null;
+            listBox_devices.ItemsSource = foundDevices;
         }
     }
 }

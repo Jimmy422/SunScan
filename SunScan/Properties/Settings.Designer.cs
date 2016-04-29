@@ -209,5 +209,95 @@ namespace SunScan.Properties {
                 this["defaultWMIDomain"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool scanForPCName {
+            get {
+                return ((bool)(this["scanForPCName"]));
+            }
+            set {
+                this["scanForPCName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool useSystemDNS {
+            get {
+                return ((bool)(this["useSystemDNS"]));
+            }
+            set {
+                this["useSystemDNS"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCName {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCName"]));
+            }
+            set {
+                this["favoritePCName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCManufacturer {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCManufacturer"]));
+            }
+            set {
+                this["favoritePCManufacturer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCModel {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCModel"]));
+            }
+            set {
+                this["favoritePCModel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCUser {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCUser"]));
+            }
+            set {
+                this["favoritePCUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCOS {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCOS"]));
+            }
+            set {
+                this["favoritePCOS"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> favoritePCType {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["favoritePCType"]));
+            }
+            set {
+                this["favoritePCType"] = value;
+            }
+        }
     }
 }

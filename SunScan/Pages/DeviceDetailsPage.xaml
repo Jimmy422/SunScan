@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button x:Name="button_back" Grid.ColumnSpan="2" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="button_back_Click" Style="{DynamicResource TransparentBackgroundButton}" FontFamily="Segoe MDL2 Assets" />
-        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Device Title" Height="70" />
+        <TextBlock x:Name="textBlock_deviceTitle" Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}" Text="Device Title" />
         <Grid Grid.ColumnSpan="2" Grid.Row="1" Style="{DynamicResource ScanInfoBox}" >
             <StackPanel>
                 <StackPanel Margin="0 0 0 24" Orientation="Horizontal">
@@ -53,25 +53,31 @@
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">WMI Management:</TextBlock>
                     <TextBlock VerticalAlignment="Center" x:Name="textBlock_wmiAvailable" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Manufacturer:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_manufacturer" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Model:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_devmodel" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">PC Name:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_pcname" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">User Active:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_currentuser" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Operating System:</TextBlock>
-                    <TextBlock VerticalAlignment="Center" x:Name="textBlock_opsys" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                <StackPanel Orientation="Vertical" x:Name="managementProperties" Margin="0 24 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Type:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_devtype" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Manufacturer:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_manufacturer" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Device Model:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_devmodel" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">PC Name:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_pcname" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Current User:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_currentuser" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="18">Operating System:</TextBlock>
+                        <TextBlock VerticalAlignment="Center" x:Name="textBlock_opsys" Grid.Column="1" Grid.Row="1" Foreground="White" Margin="0 0 16 16" FontSize="16" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
             

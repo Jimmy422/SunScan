@@ -29,9 +29,20 @@ namespace SunScan.Pages
         {
             InitializeComponent();
 
+            checkFavorites();
+
             textBlock_ipAddress.Text = selectedDevice.deviceIP;
             textBlock_macAddress.Text = selectedDevice.deviceMAC;
-            textBlock_deviceTitle.Text = selectedDevice.deviceName;
+
+            if (selectedDevice.devicePCName == "Unknown Device Name")
+            {
+                textBlock_deviceTitle.Text = selectedDevice.deviceName;
+            }
+            else
+            {
+                textBlock_deviceTitle.Text = selectedDevice.deviceName + " | " + selectedDevice.devicePCName;
+            }
+            
             textBlock_wmiAvailable.Text = selectedDevice.wmiManageableText;
 
             refreshDeviceDetails();
@@ -47,13 +58,39 @@ namespace SunScan.Pages
             }
         }
 
+        private void checkFavorites()
+        {
+            if(Properties.Settings.Default.favoriteIP == null)
+            {
+                Properties.Settings.Default.favoriteIP = new List<string>();
+            }
+
+            IEnumerable<string> query = Properties.Settings.Default.favoriteMAC.Where(
+                    s => s.Equals(selectedDevice.deviceMAC));
+
+            if(query.Any())
+            {
+                button_favorites.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void refreshDeviceDetails()
         {
             textBlock_manufacturer.Text = selectedDevice.deviceManufacturer;
+            textBlock_devtype.Text = selectedDevice.deviceType;
             textBlock_opsys.Text = selectedDevice.deviceOS;
             textBlock_pcname.Text = selectedDevice.devicePCName;
             textBlock_devmodel.Text = selectedDevice.deviceModel;
             textBlock_currentuser.Text = selectedDevice.deviceUser;
+
+            if (selectedDevice.devicePCName == "Unknown Device Name")
+            {
+                textBlock_deviceTitle.Text = selectedDevice.deviceName;
+            }
+            else
+            {
+                textBlock_deviceTitle.Text =  selectedDevice.devicePCName;
+            }
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
@@ -68,7 +105,6 @@ namespace SunScan.Pages
 
         private void button_favorites_Click(object sender, RoutedEventArgs e)
         {
-            // This does not work properly! Fix this before release. Needs to be multiple lists under the settings file.
             if(Properties.Settings.Default.favoriteIP == null)
             {
                 Properties.Settings.Default.favoriteIP = new List<string>();
@@ -84,15 +120,57 @@ namespace SunScan.Pages
                 Properties.Settings.Default.favoriteManufacturer = new List<string>();
             }
 
+            if (Properties.Settings.Default.favoritePCManufacturer == null)
+            {
+                Properties.Settings.Default.favoritePCManufacturer = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCModel == null)
+            {
+                Properties.Settings.Default.favoritePCModel = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCName == null)
+            {
+                Properties.Settings.Default.favoritePCName = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCOS == null)
+            {
+                Properties.Settings.Default.favoritePCOS = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCType == null)
+            {
+                Properties.Settings.Default.favoritePCType = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCUser == null)
+            {
+                Properties.Settings.Default.favoritePCUser = new List<string>();
+            }
+
             if (Properties.Settings.Default.favoriteWMI == null)
             {
                 Properties.Settings.Default.favoriteWMI = new List<string>();
             }
 
+            
+
             Properties.Settings.Default.favoriteIP.Add(selectedDevice.deviceIP);
             Properties.Settings.Default.favoriteMAC.Add(selectedDevice.deviceMAC);
             Properties.Settings.Default.favoriteManufacturer.Add(selectedDevice.deviceName);
+            Properties.Settings.Default.favoritePCManufacturer.Add(selectedDevice.deviceManufacturer);
+            Properties.Settings.Default.favoritePCModel.Add(selectedDevice.deviceModel);
+            Properties.Settings.Default.favoritePCName.Add(selectedDevice.devicePCName);
+            Properties.Settings.Default.favoritePCOS.Add(selectedDevice.deviceOS);
+            Properties.Settings.Default.favoritePCType.Add(selectedDevice.deviceType);
+            Properties.Settings.Default.favoritePCUser.Add(selectedDevice.deviceUser);
+            Properties.Settings.Default.favoriteWMI.Add(selectedDevice.wmiManageableText);
+
             Properties.Settings.Default.Save();
+
+            checkFavorites();
         }
 
         private void button_manage_wmi_Click(object sender, RoutedEventArgs e)
@@ -107,7 +185,6 @@ namespace SunScan.Pages
             if((bool)dialogResult)
             {
                 refreshDeviceDetails();
-                textBlock_deviceTitle.Text = selectedDevice.devicePCName;
             }
         }
     }

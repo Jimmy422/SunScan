@@ -29,6 +29,13 @@ namespace SunScan.Pages
         List<string> favIPList;
         List<string> favMACList;
         List<string> favManuList;
+        List<string> favPCManuList;
+        List<string> favPCNameList;
+        List<string> favPCModelList;
+        List<string> favPCOSList;
+        List<string> favPCTypeList;
+        List<string> favPCUserList;
+        List<string> favWMIList;
 
         public FavoritesPage()
         {
@@ -38,29 +45,28 @@ namespace SunScan.Pages
             favMACList = Properties.Settings.Default.favoriteMAC;
             favManuList = Properties.Settings.Default.favoriteManufacturer;
 
+            favPCManuList = Properties.Settings.Default.favoritePCManufacturer;
+            favPCModelList = Properties.Settings.Default.favoritePCModel;
+            favPCNameList = Properties.Settings.Default.favoritePCName;
+            favPCOSList = Properties.Settings.Default.favoritePCOS;
+            favPCTypeList = Properties.Settings.Default.favoritePCType;
+            favPCUserList = Properties.Settings.Default.favoritePCUser;
+            favWMIList = Properties.Settings.Default.favoriteWMI;
+
             foundDevices = new List<aDevice>();
 
             calculateFavorites();
 
             listBox_devices.ItemsSource = foundDevices;
-
-            if ((App.Current as App).freshScan)
-            {
-                button_saveScan.Visibility = Visibility.Visible;
-            }
         }
 
         public void calculateFavorites()
         {
             if(favIPList != null)
             {
-                favIPList = Properties.Settings.Default.favoriteIP;
-                favMACList = Properties.Settings.Default.favoriteMAC;
-                favManuList = Properties.Settings.Default.favoriteManufacturer;
-
                 for (int i = 0; i < favIPList.Count; i++)
                 {
-                    foundDevices.Add(new aDevice(favManuList[i], favMACList[i], favIPList[i]));
+                    foundDevices.Add(new aDevice(favWMIList[i], favIPList[i], favMACList[i], favManuList[i], favPCManuList[i], favPCModelList[i], favPCNameList[i], favPCOSList[i], favPCTypeList[i], favPCUserList[i]));
                 }
             }
             
@@ -105,6 +111,7 @@ namespace SunScan.Pages
                     aDevice =>
                         aDevice.deviceIP.Contains(textBox.Text.ToString()) ||
                         aDevice.deviceMAC.ToLower().Contains(textBox.Text.ToLower().ToString()) ||
+                        aDevice.devicePCName.ToLower().Contains(textBox.Text.ToLower().ToString()) ||
                         aDevice.deviceName.ToLower().Contains(textBox.Text.ToLower().ToString()));
 
                 listBox_devices.ItemsSource = query;

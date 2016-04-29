@@ -21,6 +21,36 @@ namespace SunScan
     /// <summary>
     /// Interaction logic for WMILoginWindow.xaml
     /// </summary>
+    /// 
+
+    public enum ChassisTypes
+    {
+        Other = 1,
+        Unknown,
+        Desktop,
+        LowProfileDesktop,
+        PizzaBox,
+        MiniTower,
+        Tower,
+        Portable,
+        Laptop,
+        Notebook,
+        Handheld,
+        DockingStation,
+        AllInOne,
+        SubNotebook,
+        SpaceSaving,
+        LunchBox,
+        MainSystemChassis,
+        ExpansionChassis,
+        SubChassis,
+        BusExpansionChassis,
+        PeripheralChassis,
+        StorageChassis,
+        RackMountChassis,
+        SealedCasePC
+    }
+
     public partial class WMILoginWindow : Window
     {
         aDevice selectedDevice = (App.Current as App).selectedDevice;
@@ -34,6 +64,7 @@ namespace SunScan
 
         ManagementObjectSearcher managementSearch;
         ManagementObjectSearcher managementSearch2;
+        ManagementObjectSearcher managementSearch3;
 
         public WMILoginWindow()
         {
@@ -56,7 +87,7 @@ namespace SunScan
             try
             {
                 string connectionString = "\\\\" + ipToLogin + "\\root\\cimv2";
-
+                
                 ManagementScope scope =
                 new ManagementScope(connectionString, options);
                 scope.Connect();
@@ -66,6 +97,9 @@ namespace SunScan
 
                 managementSearch2 = new ManagementObjectSearcher(connectionString, "SELECT * FROM  Win32_OperatingSystem");
                 ManagementObjectCollection queryCollection2;
+
+                managementSearch3 = new ManagementObjectSearcher(connectionString, "SELECT * FROM  Win32_SystemEnclosure");
+                ManagementObjectCollection queryCollection3;
 
                 textbox_status.Text = "Status: Login Successful!";
 
@@ -87,6 +121,20 @@ namespace SunScan
                     // Display the remote computer information
                     selectedDevice.deviceOS = m["Caption"].ToString();
                 }
+
+                queryCollection3 = managementSearch3.Get();
+
+                foreach (ManagementObject m in queryCollection3)
+                {
+                    foreach (int i in (UInt16[])(m["ChassisTypes"]))
+                    {
+                        if (i > 0 && i < 25)
+                        {
+                            selectedDevice.deviceType = ((ChassisTypes)i).ToString();
+                        }
+                    }
+                }
+
                 this.DialogResult = true;
                 this.Close();
 

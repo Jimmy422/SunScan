@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunScan"
         mc:Ignorable="d"
-        Title="SunScan" Height="600" Width="1100" ResizeMode="CanMinimize" Icon="assets/icon.ico">
+        Title="SunScan" Height="600" Width="1100" ResizeMode="CanResizeWithGrip" Icon="assets/icon.ico">
     <Grid Background="#FF1D1D1D">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

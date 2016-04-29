@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" Loaded="RowDefinition_Loaded"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Foreground="White" FontSize="36" FontFamily="Segoe UI Light"  Style="{DynamicResource Header_Page}">
             Scan Results
@@ -53,14 +53,17 @@
                 <TextBox x:Name="textBox" TextWrapping="Wrap" Width="240" Height="27" Style="{DynamicResource Textbox_search}" TextChanged="textBox_TextChanged"/>
             </StackPanel>
             <ListBox Grid.Row="1" ItemContainerStyle="{DynamicResource Listitem_Scan_Result}" x:Name="listBox_devices" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.IsSharedSizeScope="True" Width="{Binding ElementName=grid_results, Path=ActualWidth}" Height="{Binding ElementName=grid_results, Path=ActualHeight}" SelectionChanged="listBox_devices_SelectionChanged" Style="{DynamicResource Device_ListBox}" >
-                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="{Binding wmiManageableColor}" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock FontSize="18" Text="{Binding deviceName}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="18" Text="{Binding deviceName}" />
+                                        <TextBlock FontSize="18" Text=" | " />
+                                        <TextBlock FontSize="18" Text="{Binding devicePCName}" />
+                                    </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock FontSize="14" Text="IP Address: " />
                                         <TextBlock FontSize="14" Text="{Binding deviceIP}" />

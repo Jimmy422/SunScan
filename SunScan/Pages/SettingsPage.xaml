@@ -32,10 +32,18 @@
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 0" Foreground="White" FontSize="18">Overwrite Scan IP Address:</TextBlock>
                     <CheckBox x:Name="checkBox_overwrite" VerticalAlignment="Center" IsChecked="False" Checked="checkBox_overwrite_Checked" Unchecked="checkBox_overwrite_Unchecked"/>
+                    <StackPanel Orientation="Horizontal" Margin="16 0 0 0">
+                        <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address To Overwrite:</TextBlock>
+                        <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="30" />
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
-                    <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">IP Address To Overwrite:</TextBlock>
-                    <TextBox Style="{DynamicResource Textbox_search}" VerticalAlignment="Center" x:Name="overwriteIPBox" Width="100" Height="30" />
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0 0 16 0" Foreground="White" FontSize="18">Attempt To Find Device Names:</TextBlock>
+                    <CheckBox x:Name="checkBox_findNames" VerticalAlignment="Center" IsChecked="False" Checked="checkBox_findNames_Checked" Unchecked="checkBox_findNames_Unchecked"/>
+                    <StackPanel Orientation="Horizontal" Margin="16 0 0 0">
+                        <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 16 0" FontSize="18">Use System DNS To Find Device Names:</TextBlock>
+                        <CheckBox x:Name="checkBox_useSystemDNS" VerticalAlignment="Center" IsChecked="False" Checked="checkBox_useSystemDNS_Checked" Unchecked="checkBox_useSystemDNS_Unchecked"/>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 16 16">
                     <TextBlock VerticalAlignment="Center" Foreground="White" Margin="0 0 36 0" FontSize="18">Default WMI Credentials:</TextBlock>

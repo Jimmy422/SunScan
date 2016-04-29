@@ -34,6 +34,9 @@ namespace SunScan.Pages
             ipRangeBox.Text = Properties.Settings.Default.ipScanRange.ToString();
 
             checkBox_overwrite.IsChecked = Properties.Settings.Default.overwriteIP;
+            checkBox_findNames.IsChecked = Properties.Settings.Default.scanForPCName;
+            checkBox_useSystemDNS.IsChecked = Properties.Settings.Default.useSystemDNS;
+
             textbox_nmapcommand.Text = Properties.Settings.Default.nmapCommand + Properties.Settings.Default.ipToScan;
 
             wmiUsername.Text = Properties.Settings.Default.defaultWMIUsername;
@@ -91,7 +94,6 @@ namespace SunScan.Pages
 
         private void ChangeIPRange()
         {
-
             string defaultNMAPCommand = Properties.Settings.Default.nmapCommand;
 
             string ipRangeNoNmap = "";
@@ -144,28 +146,66 @@ namespace SunScan.Pages
 
         private void button_clearFavorites_Click(object sender, RoutedEventArgs e)
         {
-            //Put in code for clearing lists here
-            if(Properties.Settings.Default.favoritesList == null)
-            {
-                Properties.Settings.Default.favoritesList = new List<aDevice>();
-            }
             if (Properties.Settings.Default.favoriteIP == null)
             {
                 Properties.Settings.Default.favoriteIP = new List<string>();
             }
+
             if (Properties.Settings.Default.favoriteMAC == null)
             {
                 Properties.Settings.Default.favoriteMAC = new List<string>();
             }
+
             if (Properties.Settings.Default.favoriteManufacturer == null)
             {
                 Properties.Settings.Default.favoriteManufacturer = new List<string>();
             }
 
-            Properties.Settings.Default.favoritesList.Clear();
+            if (Properties.Settings.Default.favoritePCManufacturer == null)
+            {
+                Properties.Settings.Default.favoritePCManufacturer = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCModel == null)
+            {
+                Properties.Settings.Default.favoritePCModel = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCName == null)
+            {
+                Properties.Settings.Default.favoritePCName = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCOS == null)
+            {
+                Properties.Settings.Default.favoritePCOS = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCType == null)
+            {
+                Properties.Settings.Default.favoritePCType = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoritePCUser == null)
+            {
+                Properties.Settings.Default.favoritePCUser = new List<string>();
+            }
+
+            if (Properties.Settings.Default.favoriteWMI == null)
+            {
+                Properties.Settings.Default.favoriteWMI = new List<string>();
+            }
+
             Properties.Settings.Default.favoriteIP.Clear();
             Properties.Settings.Default.favoriteMAC.Clear();
             Properties.Settings.Default.favoriteManufacturer.Clear();
+            Properties.Settings.Default.favoritePCManufacturer.Clear();
+            Properties.Settings.Default.favoritePCModel.Clear();
+            Properties.Settings.Default.favoritePCName.Clear();
+            Properties.Settings.Default.favoritePCOS.Clear();
+            Properties.Settings.Default.favoritePCType.Clear();
+            Properties.Settings.Default.favoritePCUser.Clear();
+            Properties.Settings.Default.favoriteWMI.Clear();
 
             Properties.Settings.Default.Save();
         }
@@ -178,6 +218,28 @@ namespace SunScan.Pages
         private void checkBox_overwrite_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.overwriteIP = false;
+        }
+
+        private void checkBox_findNames_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.scanForPCName = true;
+        }
+
+        private void checkBox_findNames_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.scanForPCName = false;
+        }
+
+        private void checkBox_useSystemDNS_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.useSystemDNS = true;
+            Properties.Settings.Default.nmapCommand = "nmap --system-dns -p 135 -oX - ";
+        }
+
+        private void checkBox_useSystemDNS_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.useSystemDNS = false;
+            Properties.Settings.Default.nmapCommand = "nmap -p 135 -oX - ";
         }
     }
 }

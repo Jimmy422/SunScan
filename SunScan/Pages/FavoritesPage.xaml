@@ -43,12 +43,6 @@
                         <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Reset List</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="button_saveScan" Click="button_saveScan_Click" Visibility="Collapsed" Style="{DynamicResource Button_Generic}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE74E;" FontFamily="Segoe MDL2 Assets" Margin="6,0,6,0"></TextBlock>
-                        <TextBlock FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="6,0,12,0">Save Scan</TextBlock>
-                    </StackPanel>
-                </Button>
                 <TextBlock FontSize="14" VerticalAlignment="Center" Foreground="White" Margin="24,0,6,0">Search List:</TextBlock>
                 <TextBox x:Name="textBox" TextWrapping="Wrap" Width="240" Height="27" Style="{DynamicResource Textbox_search}" TextChanged="textBox_TextChanged"/>
             </StackPanel>
@@ -60,7 +54,11 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontSize="42" VerticalAlignment="Center" HorizontalAlignment="Center" Text="&#xE8FC;" Foreground="White" FontFamily="Segoe MDL2 Assets" Margin="6,0,12,0"></TextBlock>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock FontSize="18" Text="{Binding deviceName}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="18" Text="{Binding deviceName}" />
+                                        <TextBlock FontSize="18" Text=" | " />
+                                        <TextBlock FontSize="18" Text="{Binding devicePCName}" />
+                                    </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock FontSize="14" Text="IP Address: " />
                                         <TextBlock FontSize="14" Text="{Binding deviceIP}" />
@@ -70,7 +68,8 @@
                                         <TextBlock FontSize="14" Text="{Binding deviceMAC}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock FontSize="14" Foreground="White" Text="WMI Management: Unknown" />
+                                        <TextBlock FontSize="14" Foreground="White" Text="WMI Management " />
+                                        <TextBlock FontSize="14" Text="{Binding wmiManageableText}" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>

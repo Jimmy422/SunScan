@@ -165,12 +165,12 @@ namespace SunScan.Pages
             }
 
             //Initalizes values to no data
-            string foundIP = "No IP Address Available";
-            string foundMac = "No MAC Address Available";
-            string foundName = "No Manufacturer Available";
+            string foundIP = "Unknown IP Address";
+            string foundMac = "Unknown MAC Address";
+            string foundName = "Unknown Manufacturer";
+            string foundPCName = "Unknown Device Name";
             string foundAddress = "No Data Available";
 
-            int addressCount = 0;
             int deviceCount = 0;
 
             bool hostFound = false;
@@ -210,21 +210,45 @@ namespace SunScan.Pages
                                             break;
                                     }
                                 }
-                                deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
+                                if(Properties.Settings.Default.scanForPCName)
+                                {
+                                    deviceScanResults.Add(new aDevice(foundName, foundPCName, foundMac, foundIP, hasWMI));
+                                }
+                                else
+                                {
+                                    deviceScanResults.Add(new aDevice(foundName, foundMac, foundIP, hasWMI));
+                                }
+
                                 deviceCount++;
 
                                 //Initalizes values to no data for next device
-                                foundIP = "No IP Address Available";
-                                foundMac = "No MAC Address Available";
-                                foundName = "No Manufacturer Available";
+                                foundIP = "Unknown IP Address";
+                                foundMac = "Unknown MAC Address";
+                                foundName = "Unknown Manufacturer";
+                                foundPCName = "Unknown Device Name";
                                 foundAddress = "No Data Available";
                                 hasWMI = false;
                             }
                         }
+                        if (xmlToScan.Name == "hostname")
+                        {
+                            while (xmlToScan.MoveToNextAttribute())
+                            {
+                                switch (xmlToScan.Name)
+                                {
+                                    case "name":
+                                        if (xmlToScan.Value != "")
+                                        {
+                                            foundPCName = xmlToScan.Value;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
                         if (xmlToScan.Name == "address")
                         {
-                            addressCount++;
-
                             if (hostFound) //We want to make sure that we're getting data for one host at a time
                             {
                                 while (xmlToScan.MoveToNextAttribute())
@@ -250,11 +274,6 @@ namespace SunScan.Pages
                                             break;
                                     }
                                 }
-                            }
-
-                            if (addressCount == 2) //Once we've found the IP and MAC address, we're done
-                            {
-                                addressCount = 0;
                             }
                         }
                     }
