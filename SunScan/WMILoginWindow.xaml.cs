@@ -82,7 +82,7 @@ namespace SunScan
 
                 queryCollection2 = managementSearch2.Get();
 
-                foreach (ManagementObject m in queryCollection)
+                foreach (ManagementObject m in queryCollection2)
                 {
                     // Display the remote computer information
                     selectedDevice.deviceOS = m["Caption"].ToString();

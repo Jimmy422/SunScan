@@ -48,6 +48,8 @@ namespace SunScan.Pages
 
         private void button_saveSettings_Click(object sender, RoutedEventArgs e)
         {
+            NMAPScan.GetIPConfig(nmapCommandFile);
+
             int scanRange = 0;
 
             Properties.Settings.Default.ipToOverwrite = overwriteIPBox.Text.ToString(); //This is the custom IP address

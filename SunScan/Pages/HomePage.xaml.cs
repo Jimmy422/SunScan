@@ -58,6 +58,7 @@ namespace SunScan.Pages
 
         private void ChangeIPRange()
         {
+            NMAPScan.GetIPConfig(nmapCommandFile);
 
             string defaultNMAPCommand = Properties.Settings.Default.nmapCommand;
 
