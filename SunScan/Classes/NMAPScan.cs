@@ -198,6 +198,7 @@ public class NMAPScan
     public static string GetIPAddress()
     {
         string IPv4 = "";
+        string defaultGateway = "";
         try
         {
             using (System.IO.StreamReader rd = new System.IO.StreamReader("ipconf.txt"))
@@ -211,7 +212,13 @@ public class NMAPScan
                         string[] lines = line.Split(' ');
                         IPv4 = lines[lines.Length - 1];
                     }
+                    if (line.Contains("Default Gateway") && (defaultGateway == ""))
+                    {
+                        string[] lines = line.Split(' ');
+                        defaultGateway = lines[lines.Length - 1];
+                    }
                 }
+                (App.Current as App).scanGateway = defaultGateway;
             }
         }
         catch(Exception e)
