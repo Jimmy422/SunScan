@@ -24,7 +24,7 @@ namespace SunScan
         public MainWindow()
         {
             InitializeComponent();
-
+            //Properties.Settings.Default.Reset();
             //NMAPScan.RunTests();
         }
 

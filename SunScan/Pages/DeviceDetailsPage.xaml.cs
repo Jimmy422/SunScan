@@ -60,9 +60,9 @@ namespace SunScan.Pages
 
         private void checkFavorites()
         {
-            if(Properties.Settings.Default.favoriteIP == null)
+            if(Properties.Settings.Default.favoriteMAC == null)
             {
-                Properties.Settings.Default.favoriteIP = new List<string>();
+                Properties.Settings.Default.favoriteMAC = new List<string>();
             }
 
             IEnumerable<string> query = Properties.Settings.Default.favoriteMAC.Where(
